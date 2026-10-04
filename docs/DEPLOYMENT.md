@@ -30,3 +30,7 @@ Account creation, confirmation email delivery, recovery and authenticated multi-
 Set the Supabase Auth Site URL to `https://whistle-henna.vercel.app` and allow the exact redirect URLs `https://whistle-henna.vercel.app/auth/confirm` and `https://whistle-henna.vercel.app/reset-password`. The Supabase dashboard is signed out, and the connected tools do not expose these Auth configuration settings, so they were not changed during deployment. See [Supabase redirect configuration](https://supabase.com/docs/guides/auth/redirect-urls).
 
 The first complete Linux browser run passed 15 of 16 workflows. The remaining test expected an obsolete Apollo status and did not open the collapsed setup section. It now opens the section and checks that Apollo is explicitly not connected to the app. The application behavior was unchanged by this test correction.
+
+The corrected code at commit `3360dc8` passed [GitHub verification run 37242843723](https://github.com/nandan-s-r/whistle/actions/runs/37242843723): both application and database jobs succeeded, including the complete browser suite and production API/worker container build. Later documentation edits do not change that tested application code.
+
+The public Supabase Auth settings also confirm that email accounts and signup are enabled, with automatic email confirmation disabled. Users therefore need confirmation. This settings check does not verify email delivery or the redirect configuration.
