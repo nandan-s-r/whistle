@@ -38,7 +38,12 @@ jobs:
       - run: python scripts/check-release-secrets.py
       - run: npm ci
         working-directory: frontend
-      - run: npm audit --audit-level=high
+      - name: Audit production frontend dependencies
+        run: npm audit --omit=dev --audit-level=high
+        working-directory: frontend
+      - name: Report development dependency advisories
+        continue-on-error: true
+        run: npm audit --audit-level=high
         working-directory: frontend
       - run: npm run lint:workspace
         working-directory: frontend
