@@ -1,29 +1,26 @@
-# Contributing to VC Scope OS
+# Contributing to Whistle
 
-First off, thank you for considering contributing to VC Scope OS. It's people like you that make VC Scope OS such a great tool for the Venture Capital community.
+Start with a small, reviewable change. Describe the problem, the behavior you want, and how someone can check it.
 
-## Development Setup
+## Set up your copy
 
-1. **Fork and clone** the repo
-2. **Backend**: 
-   - `python -m venv venv`
-   - `pip install -r requirements.txt`
-   - `uvicorn backend.api:app --reload`
-3. **Frontend**:
-   - `cd frontend`
-   - `npm install`
-   - `npm run dev`
+Follow [the local setup guide](docs/LOCAL_PREVIEW.md). Use the pinned Python dependencies and `npm ci` so your installation matches the lockfile.
 
-## Pull Request Process
+Keep credentials outside the repository. Enable the push guard with `git config core.hooksPath .githooks`. A full clone is required for the history check.
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-2. Update the README.md with details of changes to the interface, this includes new environment variables, exposed ports, useful file locations and container parameters.
-3. You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
+## Before opening a pull request
 
-## Code Style
+- Keep sources, permissions and saved history intact.
+- Label fictional data and AI drafts clearly.
+- Explain any new setting or service requirement in the relevant guide.
+- Run the checks that cover your change. Include failures and remaining work in the pull request.
 
-- **Python**: PEP-8 with Black formatting
-- **TypeScript**: ESLint standards provided in the frontend directory
+The backend tests, frontend unit tests, workspace lint and build commands are in [the README](README.md). Browser tests must use an isolated backend because they create accounts and records. SQL policy checks run against the isolated database defined in GitHub verification.
 
-We look forward to your contributions!
+## Write for the next person
 
+Use plain language in labels, comments and documentation. Name the action or result. Explain unusual behavior where it matters; avoid repeating what the code already says.
+
+A pull request should describe what changed, why it matters and what you tested. Mention effects on credentials, access, saved records or external services. Do not include private settings, user records or screenshots containing credentials.
+
+Ask a maintainer to review before merging. This repository does not prescribe a reviewer count or grant contributors permission to merge.

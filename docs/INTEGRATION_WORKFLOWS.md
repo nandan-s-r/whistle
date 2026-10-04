@@ -1,6 +1,6 @@
-# Connected investment workflows — 5 October 2026
+# Connected investment workflows - 5 October 2026
 
-This increment deepens Discover, Pipeline, Portfolio and Library. No new global navigation destination, account, migration, provider purchase, outreach or deployment was added. The existing personal account and research history are preserved.
+These notes explain the read-only Calendly adapter, recorded contact activity and team deal access added on 5 October. The work stays inside Discover, Pipeline, Portfolio and Library. Saved research and account permissions were preserved. Live calendar delivery still needs testing; see [deployment status](DEPLOYMENT.md) for the hosted setup.
 
 ## Calendly: selected meetings, read-only internal access
 

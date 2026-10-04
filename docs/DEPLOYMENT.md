@@ -1,44 +1,57 @@
-# Whistle deployment
+# Deployment status
 
-The Whistle release uses a new private repository, `nandan-s-r/whistle`, and two projects in Nandan S R's Vercel workspace: `whistle` and `whistle-api`.
+Whistle is deployed in Nandan S R's Vercel workspace. The source is in a new private GitHub repository.
 
 - [Website](https://whistle-henna.vercel.app)
-- [Private repository](https://github.com/nandan-s-r/whistle)
+- [Repository](https://github.com/nandan-s-r/whistle)
 - [Website project](https://vercel.com/nandan-s-rs-projects/whistle)
 - [API project](https://vercel.com/nandan-s-rs-projects/whistle-api)
 
-Both production deployments report Ready. The website's login and signup pages return HTTP 200. The API health endpoint returns HTTP 200; unsigned workspace requests return HTTP 401 through both the API and the website proxy. Local signup returns HTTP 404 on the hosted website. These checks do not establish authenticated account behavior.
+## What is working
 
-The website uses the public Supabase URL and publishable key. The API uses the same project. Local login is disabled in the hosted website. Provider credentials belong only in the API project's secret settings.
+Both production deployments report Ready. Login and signup pages return HTTP 200. The API health check returns HTTP 200. Workspace requests without a session return HTTP 401 through the API and website proxy. Hosted local signup returns HTTP 404.
 
-The initial deployment uses Vercel Drop because the connected Vercel plugin cannot access the team scope and Vercel's GitHub application does not yet have access to the new repository. Install or configure that application for only `nandan-s-r/whistle` to enable automatic deployment. Set the website root to `frontend` and the API root to the repository root.
+These checks confirm that the deployed services respond and reject unsigned workspace requests. They do not confirm that a real user can complete every account workflow.
 
-Gemini, Firecrawl, X, calendar synchronization and a persistent job worker have not been activated in these hosted projects. A local provider key is not automatically transferred to Vercel.
+The website and API use the same Supabase project. Local login is disabled on the hosted site. Private provider credentials belong in the API project's secret settings.
 
-## Release checks
+## Finish account setup
 
-The local release passed 184 backend regression tests, two hosted-path tests, 23 frontend unit tests and workspace lint. The isolated Linux database bootstrap needed Supabase's standard extension-schema usage grant. The frontend lockfile was regenerated in a clean directory after the first Linux install failed.
+Supabase allows signup and requires email confirmation. Set the Auth Site URL to `https://whistle-henna.vercel.app` and allow these exact redirects:
 
-The production frontend audit reports no known advisories. The full development audit reports GHSA-vfj7-8cjw-p6xm through the Next.js ESLint plugin's `braces` dependency. The advisory lists no patched release as of 5 October 2026. This tooling reads repository-controlled lint patterns and is not a dependency in the production frontend audit. CI blocks production advisories and retains a separate visible development audit report. Do not downgrade Next.js or apply `npm audit fix --force` merely to suppress that report.
+- `https://whistle-henna.vercel.app/auth/confirm`
+- `https://whistle-henna.vercel.app/reset-password`
 
-Reference: [braces advisory](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm).
+The dashboard was signed out during deployment, and the connected tools did not expose those settings. They were not changed. Test account creation, email delivery, confirmation, password recovery, returning sign-in and separate-user access before inviting people.
 
-Supabase also reports disabled leaked-password protection. It should be enabled when the project's plan supports it. The private allowance table's RLS-without-policy notice is deliberate: clients must not directly read that table.
+See [Supabase redirect configuration](https://supabase.com/docs/guides/auth/redirect-urls). No private credentials or persistent test accounts were created for the deployment checks.
 
-Account creation, confirmation email delivery, recovery and authenticated multi-user use must be checked by the operator on the hosted origin. No private credentials or persistent test accounts were created during this deployment.
+## Connect deployments and services
 
-Set the Supabase Auth Site URL to `https://whistle-henna.vercel.app` and allow the exact redirect URLs `https://whistle-henna.vercel.app/auth/confirm` and `https://whistle-henna.vercel.app/reset-password`. The Supabase dashboard is signed out, and the connected tools do not expose these Auth configuration settings, so they were not changed during deployment. See [Supabase redirect configuration](https://supabase.com/docs/guides/auth/redirect-urls).
+The first deployment used Vercel Drop. The Vercel chat plugin lacked team access, and Vercel's GitHub application did not have access to the new repository.
 
-The first complete Linux browser run passed 15 of 16 workflows. The remaining test expected an obsolete Apollo status and did not open the collapsed setup section. It now opens the section and checks that Apollo is explicitly not connected to the app. The application behavior was unchanged by this test correction.
+To enable automatic deployments, give that application access to only `nandan-s-r/whistle`. Use `frontend` as the website root and the repository root for the API.
 
-The corrected code at commit `3360dc8` passed [GitHub verification run 37242843723](https://github.com/nandan-s-r/whistle/actions/runs/37242843723): both application and database jobs succeeded, including the complete browser suite and production API/worker container build. Later documentation edits do not change that tested application code.
+Hosted Gemini, Firecrawl, X, calendar synchronization and a persistent worker are not activated. A local key does not transfer to Vercel automatically. See [private Gemini setup](PRIVATE_API_SETUP.md) and [platform setup](PLATFORM_SETUP.md).
 
-The public Supabase Auth settings also confirm that email accounts and signup are enabled, with automatic email confirmation disabled. Users therefore need confirmation. This settings check does not verify email delivery or the redirect configuration.
+## Checks that passed
 
-## Credential publication checks
+The application and database jobs passed at [commit d6b693c](https://github.com/nandan-s-r/whistle/actions/runs/37244405989). The earlier release at [3360dc8](https://github.com/nandan-s-r/whistle/actions/runs/37242843723) passed 186 backend tests, 23 frontend tests, all 16 browser workflows, database policy checks and the production API/worker image build. The credential guard then added four passing regression tests.
 
-The new Whistle repository is private. The release guard found no flagged credentials or private-setting filenames across its five published commits: 346 unique eligible source/document blobs were inspected, with no oversized eligible blobs skipped. Private local settings, databases and key files were not opened. This is a bounded pattern check, not a guarantee that every kind of credential can be detected.
+Before release, the Linux database bootstrap received the standard extension-schema usage grant, the frontend lockfile was regenerated for clean installs, and an outdated Apollo status expectation was corrected. The final runs passed. Building the image does not prove the full worker stack is running.
 
-The guard now detects additional provider-token formats and legacy Supabase service-role JWTs, checks private filenames case-insensitively, and inspects every reachable commit tree so reused blobs do not conceal private filenames. GitHub verification fetches full history before running it. A local pre-push hook is enabled in the release checkout; developers cloning the repository must enable it themselves. Four isolated tests cover token detection, private filenames, deleted historical keys, reused private blobs and rejection of shallow history.
+## Security work still open
 
-The formal Codex Security plugin scan-start call did not return an authoritative scan context during this follow-up. That audit is unverified. The successful release tests and credential checks must not be described as an exhaustive security audit or a guarantee against compromise. Hosted account isolation, provider delivery and the previously documented dependency/password-protection concerns remain acceptance work.
+The production frontend audit reports no known advisories. The development audit reports [GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) in the Next.js lint tooling's `braces` dependency. The advisory lists no patched release as of 5 October 2026. CI blocks production advisories and keeps the development warning visible.
+
+Supabase's leaked-password protection is disabled. Enable it when the project's plan supports it. The no-policy notice on the private allowance table is intentional: clients must not read it directly.
+
+A formal Codex Security audit was not completed because the scan-start call did not return a result. Passed tests are not a security certification. Hosted account isolation, provider delivery and recovery procedures still need testing.
+
+## Keep keys out of Git
+
+The pre-push credential check inspected 353 historical source/document versions before publishing `d6b693c`, with no flagged keys or private-setting filenames. An earlier check covered 346 versions across the first five commits. No oversized eligible files were skipped, and private settings, databases and key files were not opened.
+
+The guard checks token formats, service-role JWTs, private filenames and every reachable commit tree. GitHub verification fetches full history. The local push hook is enabled in the release checkout; other developers must enable it after cloning.
+
+These checks report filenames rather than matching values. They help catch accidental exposure but cannot detect every possible credential.

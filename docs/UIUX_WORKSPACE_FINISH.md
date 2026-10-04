@@ -1,6 +1,6 @@
-# Whistle workspace finish — 4 October 2026
+# Whistle workspace finish - 4 October 2026
 
-The user asked for a professionally designed workspace because the previous interface felt generic. The user then explicitly selected a minimal Linear/Attio direction: dense deal rows, fewer panels and restrained colors. This revision follows that choice while keeping the PDF investment workflow.
+The 4 October direction was simple: dense deal rows, fewer panels and restrained colours. These notes explain the changes to Pipeline, Library, navigation and first-use guidance while keeping the investment workflow intact.
 
 ## Design basis
 
@@ -33,7 +33,7 @@ The 4 October text-colour follow-up corrects prose and metadata that inherited o
 
 This is a local UI revision. Independent investor feedback, screen-reader and 200% browser-zoom acceptance, hosted performance and live integration acceptance remain open. It does not make the ecosystem production-ready or certify the quality of investment conclusions.
 
-## Pipeline first-use follow-up — 4 October
+## Pipeline first-use follow-up - 4 October
 
 Pipeline now has a direct Add company action instead of sending a new user to Discover. Its initial form asks for company name, website/domain and a founder or contact; other metadata sits behind More company details. Unknown geography, sector, funding stage and role remain explicitly unevidenced rather than receiving guessed defaults. The optional How Pipeline works guide explains the three review steps, every recorded decision and the difference between a view/filter and a saved decision. Invest remains separate from a completed transaction.
 
@@ -43,7 +43,7 @@ A partial company/Pipeline save retains the saved identity and offers a retry; i
 
 A fresh-account browser journey verifies add → failed membership save → retry → reload → source and claim → reasoned Watch decision → reload → canonical-domain duplicate. It checks sixteen light/dark desktop/phone accessibility and overflow states, plus the final phone record. The observed test-label mismatch was corrected to include the visible mobile Next prefix; application behavior was preserved. Final regression results are recorded in VERIFICATION.md. These are automated checks with synthetic accounts, not an observation of independent first-time investors.
 
-## Simpler everyday use — 4 October
+## Simpler everyday use - 4 October
 
 The user explicitly requested a website that is easy to understand and use. An empty account now points to Pipeline's simple company intake through “Add your first company”, rather than sending a new user through discovery controls. The guide shortcut uses plain language.
 

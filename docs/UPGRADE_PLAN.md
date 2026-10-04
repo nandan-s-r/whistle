@@ -1,6 +1,6 @@
 # VC Scope upgrade audit and implementation plan
 
-Primary reference: the 31-page VC Scope Product/UIUX Blueprint supplied in this workspace.
+This is the original upgrade plan for the 31-page VC Scope blueprint. It records the starting problems and proposed sequence, not the current deployment instructions. Legacy HTTP tools were later retired, the product was renamed Whistle, and public sourcing was added. Use [deployment status](DEPLOYMENT.md) and [blueprint coverage](BLUEPRINT_ACCEPTANCE.md) for the current position.
 
 ## Existing implementation
 

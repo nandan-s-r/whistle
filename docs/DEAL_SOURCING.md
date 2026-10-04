@@ -1,10 +1,10 @@
-# Source-backed deal sourcing — 4 October 2026
+# Source-backed deal sourcing - 4 October 2026
 
 ## Industry research and integration follow-up
 
-### Unified industry prompt — 5 October 2026
+### Unified industry prompt - 5 October 2026
 
-Discover → Deal sourcing → Industry research accepts one public industry/customer-problem prompt with optional source selection. Product Hunt and GitHub are selected initially; Gemini is selected only when the authenticated account's server configuration permits it. The connection check exposes account boundaries and configuration flags, never keys. Configuration does not establish a successful provider call.
+In Discover, open Deal sourcing and describe the industry or customer problem you want to research. Product Hunt and GitHub are selected initially. Gemini is available only when the account and server settings allow it. The status check shows requirements without exposing keys; a completed request is needed to confirm that a provider works.
 
 Selected fixed-destination requests overlap, keeping successful results if another provider fails or reaches its allowance. Existing authenticated atomic budgets and hybrid cloud-account restrictions remain. Product Hunt matches transparent industry terms in its latest official feed, within 30 days (maximum ten launch references). GitHub uses industry topics/keywords, excludes forks/archives, requires activity within 180 days, filters obvious tutorial/reference collections and returns at most five repositories. Neither feed authors nor repository owners establish founder identity; stars do not establish adoption.
 

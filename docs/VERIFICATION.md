@@ -1,6 +1,8 @@
-# Whistle verification — 4 October 2026
+# Test and verification records
 
-## Integration depth and original activity time — 5 October 2026
+These are dated development results. A test count applies to the revision and scope described in its entry, not every later version. The release at `3360dc8` passed 186 backend tests, 23 frontend tests, all 16 browser workflows, database policy checks and the API image build. The later credential guard passed four local regression tests. See [deployment status](DEPLOYMENT.md) for the current release and remaining hosted checks.
+
+## Integration depth and original activity time - 5 October 2026
 
 Final full backend regression: **174 passed in 46.795s**, with an explicit PyJWT 2.15.1 assertion and isolated fixtures. Twelve new calendar/activity cases cover exact account binding (including local/cloud identity separation), hybrid capability restrictions, reader/deal write permissions, read/retention consent, fixed GET-only destinations, personal-user filtering, response/date/duration bounds, minimal metadata retention, signed ten-minute previews, original activity timestamps, stale revisions, provider event changes, cancellations, duplicate import, generic errors and allowance-before-network. No existing account or research row was changed by these tests.
 
@@ -10,7 +12,7 @@ Actual browser checks confirm Library connection status, a collapsed catalogue o
 
 Firecrawl MCP balance remains -694; no charged work was attempted. The original repository's meetings page was reread using the GitHub connector. No API credential file was opened or overwritten. Final source/document credential-pattern check inspects 298 files, flags zero and skips private settings and databases. This is not a new exhaustive security scan or hosted certification. Live Calendly configuration, per-user SaaS OAuth, actual two-user cloud permissions, CRM synchronization and licensed social/funding providers remain acceptance work. See INTEGRATION_WORKFLOWS.md.
 
-## Unified industry prompt — 5 October 2026
+## Unified industry prompt - 5 October 2026
 
 Final isolated backend run: **162 tests passed in 40.680s**, explicitly asserting PyJWT 2.15.1. **15 frontend tests**, scoped IndustryResearch/next.config lint and the latest TypeScript production build (40 routes) pass. New boundaries include authenticated capability flags, consumer/unknown-sector feed terms, public-only provider selection, no-source rejection, preserving public results after a provider allowance failure, overlapping independent requests, UTF-8 byte citation offsets/invalid boundaries and GitHub topic/reference filtering. Fixtures do not change the user's records or inspect private settings.
 
@@ -20,35 +22,35 @@ The restarted preview retained 13 saved companies. Research results did not writ
 
 The local-account status correctly reports configured Gemini with cloud sign-in required; its existing paid-provider policy was preserved. No live cloud grounded answer was obtained. Direct authenticated LinkedIn/X search is not connected; indexed public references and authorized excerpts have distinct boundaries. Firecrawl chat credits are exhausted, its runtime key is not configured, and Apollo access is plan-blocked. These are outstanding integrations, not simulated successes. No key file was opened, new account created, outbound message sent, purchase made, GitHub push or deployment performed.
 
-## Deal sourcing — 4 October
+## Deal sourcing - 4 October
 
 Discover's new Deal sourcing mode targets the user's selected AI chips and semiconductor infrastructure thesis. The signed-in portal successfully fetched Product Hunt's official public feed: 50 entries inspected, zero chip text matches. Three separately labelled research snapshots (d-Matrix, Axelera AI and NeuReality) remain visible with dated source context and unanswered diligence questions. They are not live launch matches, confirmed customer enthusiasm or current investment opportunities. No existing company, claim or investment records were changed by this sourcing run.
 
 Initial implementation validation passed 131 backend tests and 13 frontend tests. The final affected sourcing/security/platform suite passed 45 tests after the keyless public-feed allowance and two mocked X-adapter checks. The final production build generates all 39 routes and passes TypeScript; targeted React lint passes. Save behavior, receipt ownership/expiry, duplicate preservation, unreviewed evidence, retention confirmation and failure boundaries are checked in isolated fixtures. X calls are mocked: runtime access is not configured and live X acceptance remains unverified. LinkedIn supports authorized selected excerpts, with no automated scraping.
 
-Manual browser checks confirm all three leads, original-source links, next questions, Save to research controls and the disabled X button with its explanation. The review drawer and customer-signal form have no horizontal page overflow at 390px. The default 865px desktop view has no overflow in light or dark appearance; the user's dark appearance and normal viewport are restored. Proof: [desktop sourcing](screenshots/whistle-deal-sourcing.jpg) and [phone sourcing](screenshots/whistle-deal-sourcing-phone.jpg). These are targeted rendered-page checks, not a new broad accessibility certification or first-time investor acceptance study.
+Manual browser checks confirm all three leads, original-source links, next questions, Save to research controls and the disabled X button with its explanation. The review drawer and customer-signal form have no horizontal page overflow at 390px. The default 865px desktop view has no overflow in light or dark appearance; the user's dark appearance and normal viewport are restored. Proof: desktop sourcing (local screenshot: `screenshots/whistle-deal-sourcing.jpg`) and phone sourcing (local screenshot: `screenshots/whistle-deal-sourcing-phone.jpg`). These are targeted rendered-page checks, not a new broad accessibility certification or first-time investor acceptance study.
 
 Automatic approval review blocked persistent QA-account creation because it would change saved state without explicit approval. No workaround account was created; isolated fixtures verify saving instead. Private configuration contents and credentials were never displayed, edited or exposed to the browser. Full-market coverage, continuous monitoring, source licensing and hosted integration acceptance remain open. See [DEAL_SOURCING.md](DEAL_SOURCING.md).
 
-## Clearer text colours — 4 October
+## Clearer text colours - 4 October
 
 The user requested easier-to-read words and sentences. Eighty-eight text rules that had inherited the orange link colour now use explicit primary, body or supporting roles across Discover, Today, Pipeline, company records, model values, source excerpts, memos, forms, research tools and ecosystem panels. Actual links/actions and selected states retain the burnt-orange/copper treatment; labelled evidence states retain their semantic colours. Light primary prose stays #242321 and supporting text #68645E. Dark headings stay #F7F5F0, body text uses #DED9D0 and supporting text #B8B0A3. Dark navigation keeps its separate readable roles.
 
 The 39-route production build and TypeScript pass; `git diff --check` passes. Fresh audits pass 196 Axe states (theme 68, studio 64, ecosystem 64), 76 broad theme layouts and the studio/ecosystem overflow checks. No detected violations, overflow or captured page errors remain in those checked states. Representative contrast ratios: light body on white 15.70:1; light supporting text on ivory 5.39:1; dark body on surface 10.88:1; dark supporting text on raised surface 6.03:1. These numerical checks supplement the actual-page audits, rather than establishing full accessibility conformance.
 
-The normal backend remains running. QA uses synthetic records without an external model call or reading private configuration. The user's Discover page is reloaded against the final build; neutral descriptions, supporting metadata and the nine saved company rows are confirmed in the rendered DOM. Proof: [Discover text hierarchy](screenshots/whistle-readable-discover.jpg). The earlier full workflow tests are historical and were not unnecessarily repeated for this CSS-only revision. Independent readability/usability and human accessibility acceptance remain open.
+The normal backend remains running. QA uses synthetic records without an external model call or reading private configuration. The user's Discover page is reloaded against the final build; neutral descriptions, supporting metadata and the nine saved company rows are confirmed in the rendered DOM. Proof: Discover text hierarchy (local screenshot: `screenshots/whistle-readable-discover.jpg`). The earlier full workflow tests are historical and were not unnecessarily repeated for this CSS-only revision. Independent readability/usability and human accessibility acceptance remain open.
 
-## User-requested AI chip companies — 4 October
+## User-requested AI chip companies - 4 October
 
 All nine requested companies are saved through the signed-in Discover UI with one official source and company-reported claim per company. The reloaded page shows 13 total records (four existing demos plus nine research records); each requested name is unique in Research and each has one source. Current hiring and unconfirmed India locations remain explicitly unverified. No funding stage, fit score or investment approval was inferred. This is an account-data addition, with no application code or private configuration change. See [AI_CHIP_SHORTLIST.md](AI_CHIP_SHORTLIST.md) and its screenshot for provenance and bounded UI verification.
 
-## Gemini connection check — 4 October
+## Gemini connection check - 4 October
 
 The running authenticated workspace metadata reports Gemini configured with gemini-3.8-flash. A small direct connection request to Google returns HTTP 200 with a candidate response. The subsequent application-format structured-draft diagnostic receives HTTP 503 / UNAVAILABLE on both the initial attempt and one retry; usable structured generation remains unverified. The local synthetic account's draft action returns 422 because hybrid mode requires cloud authentication for external provider work. That boundary is retained rather than bypassed.
 
 Diagnostics use only fictional/empty records and print status metadata; private key values, configuration contents, tokens and generated response text are never displayed. Ordinary backend configuration remains intact. Initial restricted-network failure is resolved by the authorized network-enabled diagnostic. No claim of successful end-to-end cloud-account generation follows from the successful connectivity check.
 
-## Simpler everyday use — 4 October
+## Simpler everyday use - 4 October
 
 New accounts now reach Pipeline's three-field intake through “Add your first company”. Discover keeps search and company entry visible while founder tools, source journal, directory and example searches open under “Research tools”. Company pages retain their six tabs and core review/decision actions; secondary meeting, presentation and memo shortcuts open under “More tools”. Native disclosures have visible keyboard focus, responsive helper text and no additional requests, state effects or dependencies. Active dialogs remain outside the disclosures.
 
@@ -58,7 +60,7 @@ The studio suite passes 64 automated accessibility/layout states, including the 
 
 The ordinary backend is restored after QA without opening private configuration. The rebuilt preview's sign-in page returns 200, and anonymous workspace access returns 401. This is a local UX improvement. Existing investment behavior and saved data remain intact; independent first-time investor observation, human accessibility acceptance, hosted performance and live integrations remain open. See [UIUX_WORKSPACE_FINISH.md](UIUX_WORKSPACE_FINISH.md).
 
-## White logo, larger mark and alignment — 4 October
+## White logo, larger mark and alignment - 4 October
 
 The user requested a white logo, a little more zoom and proper alignment. The shared frame grows from 44px to 48px; the supplied PNG renders at 60px inside it, with a 3px optical offset to center the diagonal whistle. This enlarges the visible artwork by approximately 36% without clipping its silhouette. A CSS white treatment removes the pale tile on charcoal sign-in/sidebar surfaces and dark public headers; light public headers retain the charcoal original for readability. The PNG bytes and browser icons remain unchanged.
 
@@ -66,7 +68,7 @@ Final verification: 39-route production build/TypeScript and scoped Brand lint p
 
 This is a local presentation change; private configuration, backend behavior and investment data were not opened or changed. Earlier full workflow results below are historical and were not repeated for the logo adjustment.
 
-## User-approved warm palette — 4 October
+## User-approved warm palette - 4 October
 
 The user's warm ivory/white/charcoal/stone/burnt-orange palette replaces the old blue/navy colour system across shared workspace, authentication, public pages, drawers, editors, charts and legacy styles. `palette.css` owns the light/dark roles. Existing source styles use these roles; the user-supplied logo is unchanged. See [WARM_PALETTE.md](WARM_PALETTE.md).
 
@@ -76,7 +78,7 @@ The complete palette audit passes 236 Axe states: theme 68, studio 52, ecosystem
 
 A final placeholder-only colour improvement raises sign-in hint contrast to 5.88:1 in light mode and 8.40:1 in dark mode. After that improvement, the production build and broad 76-layout/68-state theme suite pass again. The 16-workflow run and the studio/ecosystem/public audits above precede this last cosmetic adjustment; their scope is recorded rather than represented as new runs. The final brand audit also passes again: 32 Axe states and 30 alignment checks, with the original artwork served unchanged. The ordinary backend is restored after QA without opening private configuration. The local preview is served from the rebuilt production bundle; hosted performance, live integrations and independent investor usability remain unverified.
 
-## User-supplied Whistle logo — 4 October
+## User-supplied Whistle logo - 4 October
 
 The user's supplied whistle artwork replaces the earlier vector symbol in the shared sign-in, signup, public-header and workspace-sidebar component. The original PNG is copied without visual edits; attachment/local-asset SHA-256 equality and served-asset equality both pass. It keeps its supplied background and square proportions. The 44px frame is centered beside the wordmark without stretching or cropping the artwork. Favicon sizes 16/32/48/64 and the 180px Apple shortcut use the same source; the SVG icon embeds those original PNG bytes.
 
@@ -84,7 +86,7 @@ The final production build passes TypeScript for 39 routes and workspace lint pa
 
 Screenshots: `screenshots/whistle-supplied-logo-login-light-1440.png`, phone/dark variants, sidebar variants and the cropped rendered wordmark `screenshots/whistle-supplied-logo-lockup-light.png`. The preview is restarted with the final build. No backend behavior, private configuration, API key, investment record, external AI request or deployment is changed. Earlier investment-workflow counts below are historical and were not unnecessarily rerun for the logo change.
 
-## Pipeline first-use follow-up — 4 October
+## Pipeline first-use follow-up - 4 October
 
 The user asked for a simple Pipeline for people using Whistle for the first time. Direct intake now asks for three initial fields, with extra metadata behind More company details. Empty Pipeline has a clear add action and optional instructions rather than unused filters. The optional guide explains recorded decisions, views and completed investments. New unsourced rows lead to Evidence; unknown metadata is not guessed. A partially saved addition can be retried without duplicating the company, and an existing canonical domain preserves its research and decision.
 
@@ -98,7 +100,7 @@ Earlier attempts are not counted as final passes: the new test initially omitted
 
 QA uses disposable synthetic local accounts and process-level rules mode. No private Gemini configuration, real-account credential or clipboard content is inspected, and no live AI request is made. The ordinary backend configuration is restored afterward; sign-in returns 200 and anonymous workspace access returns 401. The final production preview remains running on ports 3000/8000. This improves the tested first-use journey; independent novice-investor usability, screen-reader/200% zoom acceptance, hosted performance and live integrations remain open.
 
-## Minimal workspace direction — 4 October
+## Minimal workspace direction - 4 October
 
 The user selected “Minimal like Linear/Attio: dense deal rows, fewer panels, restrained colors.” Pipeline now opens as a searchable company register with slim decision filters. Board and People remain selectable, stored view choices remain intact, and evidence opens directly from either layout. Phone rows retain company, decision, stage, next step, evidence and owner. The fixed example thesis block is removed from the sidebar; Library retains the thesis. Demo disclosure now appears only for accounts containing illustrative records. Sign-in and empty-account copy are simpler, and Today counts use flat controls. Authentication behavior, permissions, provider settings, calculations and frozen artifacts are unchanged.
 
@@ -111,7 +113,7 @@ Visual review caught an inherited dark card background on Today counts and a hea
 
 QA uses disposable local accounts and process-level rules mode. No private Gemini file, credential or clipboard content is read, and no live AI request is made. The ordinary backend configuration is restored afterward. This is a local UI change; investor feedback, screen-reader/200% zoom acceptance, hosted performance and live integrations remain open.
 
-## Earlier workspace design finish — 4 October
+## Earlier workspace design finish - 4 October
 
 The Library reading layout, first-use workspace, Discovery tools, shared typography/navigation and optional dark surfaces were revised following the user's request for a more professional interface. The PDF's later visual and navigation specifications remain the basis. See [UIUX_WORKSPACE_FINISH.md](UIUX_WORKSPACE_FINISH.md) for the design scope and retained boundaries.
 
@@ -127,7 +129,7 @@ The first theme run caught a light-theme notice contrast of 4.24:1; its text now
 
 QA uses separate synthetic local accounts and a process-level rules-provider override. Private Gemini files and the user's credential values are not opened or displayed, and no live provider request is required. The preview's ordinary backend configuration is restored after the checks. Investment permissions, calculations and frozen-record logic were not changed by this visual revision. Real-investor feedback, screen-reader/200% zoom acceptance, live providers and hosted performance remain open.
 
-## Private Gemini editor setup — 4 October
+## Private Gemini editor setup - 4 October
 
 Repeated Notepad launches of the existing `VC Scope OS/backend.env` failed in the user's desktop despite successful existence checks. The user requested a newly created and saved settings file. A separate `LOCALAPPDATA/Whistle/Gemini Settings.txt` was created with UTF-8 encoding, `WORKSPACE_PROVIDER=gemini`, `GEMINI_MODEL=gemini-3.8-flash` and an empty `GEMINI_API_KEY=` line. The directory and file were created outside the repository/OneDrive, using create-new semantics; existing settings were not overwritten, read by the assistant or renamed. Notepad launch was requested, but successful desktop opening still requires user confirmation.
 
@@ -135,7 +137,7 @@ The runtime now reads only the three Gemini settings from that separate file. Ex
 
 After the user saved their file, a boolean-only runtime check initially found no key and metadata showed a second file named `Gemini Settings.txt.txt`. The extra extension was corrected with native moves inside the private directory; the earlier expected file was retained as a separate backup rather than overwritten. Neither file's contents were displayed or opened in an editor by the assistant during this correction. The app's internal configuration check now reports Gemini selected, a nonempty key and the expected model, without exposing credential values. The ordinary preview API was restarted; the login page returns 200 and anonymous workspace access returns 401. No live provider call was made, so key validity and successful Gemini draft generation remain unverified.
 
-## Follow-up integrity fix — 4 October
+## Follow-up integrity fix - 4 October
 
 The user's request to resolve mistakes prompted an additional completed-investment boundary check. It found a real application/database mismatch: an authenticated owner could directly change a Closed opportunity's ownership from 0.05 to 0.9 in Supabase even though the app action rejected that edit. The synthetic reproduction rolled back.
 
@@ -146,9 +148,9 @@ The shared local/cloud save helper and new database triggers on personal/fund re
 - Both affected Edge browser workflows pass against the refreshed API: decision/observation memory and fund access/revocation. No frontend source or dependency changed, so the immediately preceding production build, frontend unit and visual/accessibility results below were not repeated.
 - The dedicated project's migration is applied as `20261004075637_protect_completed_holdings`, matching the local filename. Security/performance advisors report no WARN/ERROR. Private-table RLS and four unused indexes remain informational entries; no permissive policy or speculative index deletion was introduced.
 
-The normal preview configuration is restored. No private Gemini file inspection or change, live AI request, deployment, purchase or outreach occurred. This verifies completed-opportunity UPDATE integrity; it does not certify source authenticity, every referenced source, privileged administrator actions or a complete correction/retention system. The Excel runner discrepancy and production release gaps below remain open. Full strategy, changed files, exact validation commands and limits are in the [managed security finding](C:/Users/srnan/.codex/state/plugins/codex-security/scans/vc-scope-os/artifacts-bee63c3d2d3e1c6077dd0dbda35c9042f758f076d2c116e679fa40cf2869fba5/findings/completed-holding-integrity.md).
+The normal preview configuration is restored. No private Gemini file inspection or change, live AI request, deployment, purchase or outreach occurred. This verifies completed-opportunity UPDATE integrity; it does not certify source authenticity, every referenced source, privileged administrator actions or a complete correction/retention system. The Excel runner discrepancy and production release gaps below remain open. Full strategy, changed files, exact validation commands and limits are in the managed security finding (`completed-holding-integrity.md`, local audit artifact).
 
-## Final check requested by the user — 4 October
+## Final check requested by the user - 4 October
 
 Verdict: the current local build passes the tested investment workflows. This does not establish readiness for a public production release or factual correctness of every investment judgment.
 
@@ -171,7 +173,7 @@ The existing Excel verification limitation was investigated further without chan
 
 Release gaps remain: live AI/source integrations and their data rights; real cloud Auth/API/browser/export/revocation checks; shared file/index/job permissions; complete retention/deletion and work reassignment; actual account-scale/hosted performance; AI support/usefulness evaluation; and independent investor/accessibility acceptance. Cloud fund access remains disabled by default. See [ECOSYSTEM_STATUS.md](ECOSYSTEM_STATUS.md) for the full requirement map. The local preview is restored to the ordinary backend configuration after QA; no private-key file inspection, deployment, purchase or outreach occurred.
 
-## Ecosystem milestone — 4 October
+## Ecosystem milestone - 4 October
 
 The 31-page blueprint and the user's 30 answers are mapped to delivered behavior and remaining boundaries in [ECOSYSTEM_STATUS.md](ECOSYSTEM_STATUS.md). This is a tested local milestone; it is not a complete production ecosystem, investor acceptance or security certification. Earlier sections below retain historical counts.
 
@@ -318,7 +320,7 @@ Final screenshot: `screenshots/platform-draft-review.png` shows the real Locus e
 
 No new cloud migrations, business-record writes, deployment, external provider requests or paid-service changes were required for this milestone. PDF/XLSX export, live integrations and the blueprint's independent research/user acceptance criteria remain open.
 
-## UI and UX redesign checks — 3 October 2026
+## UI and UX redesign checks - 3 October 2026
 
 The 37-route production build and TypeScript pass, with zero scoped workspace ESLint errors or warnings. The three Edge flows passed after the main redesign; later copy, metric-link and CSS refinements were checked manually in the final production preview. Saved searches, two-active-advanced-filters indication, source drawers, Research-only filtering, and Overview links to Evidence/Diligence/Model work. Discover has no horizontal document overflow at 390/768/1024/1440px; Library was fixed and rechecked at 390/768px. Mobile Run search is 44px high. Global search cycles focus in both directions, closes with Escape, and restores trigger focus and background scrolling. The final browser console error log is empty.
 
@@ -329,7 +331,7 @@ Screenshots: `screenshots/ui-discover-desktop.png` and `screenshots/ui-library-d
 All four Edge workflows pass across the full run and targeted rerun. The three existing tests passed in the full run; the additional guide test passed after correcting its exact-label locator to the observed combobox role. It verifies glossary content, native Escape/focus/scroll restoration, original saved memo text, version 1 citation scope, demo source disclosure and 390px boundaries. No application change was needed for that locator correction. The final production build and workspace lint pass; the final glossary addition is copy only. Real Locus memo versions 1 and 3 were inspected separately without writing to the company. Further viewport and final screenshot checks are recorded in `UIUX_EXPLORATION.md`.
 
 
-## Sourcing and review studio verification — 3 October 2026
+## Sourcing and review studio verification - 3 October 2026
 
 The final local production build generates 37 routes and passes TypeScript and scoped workspace ESLint. All 75 backend tests pass; the 11 new workflow tests were rerun after the final workbook source formatting changes and pass. Six review-queue tests pass. New backend cases cover owned/read-only boundaries, stale revisions, UTC scheduling, linked-question/memo integrity, outcome/reopening, escaped UTF-8 calendar fields, profile validation/identity/deduplication, manual preview without network or writes, new frozen memo reasoning/citation scope, version-bound PDF/PowerPoint/Excel and literal spreadsheet text.
 
@@ -342,7 +344,7 @@ No live model/search/LinkedIn/financial-data feed, calendar synchronization, out
 
 Final full Edge run: **7 passed (1.7 minutes)**. It includes the new source capture → meeting/calendar/outcome → model → memo v1 deep link → analyst v2 → PowerPoint/PDF/Excel download → reload journey, durable research jobs, mobile capture, sourced diligence and selected review ZIP, frozen-source exploration, navigation/keyboard/view recovery and light/dark cross-tab persistence. The final production preview is running on port 3000 with the updated backend on port 8000. No deployment occurred.
 
-## Industry research, returning accounts and security containment — 5 October 2026
+## Industry research, returning accounts and security containment - 5 October 2026
 
 The final isolated backend run passes **153 tests**, including three token-migration boundaries, returning-account persistence, concurrency allowances, stored-record containment and sourcing authorization. This run explicitly asserts use of PyJWT 2.15.1; earlier ambient-package checks are not counted as verification of the pinned candidate. **15 frontend tests** pass. The latest production build passes TypeScript and generates **40 routes**; scoped frontend lint passes. The missing generic `npm test` script was followed by the actual `node --test tests/*.test.mjs` command. No new full browser automation or automated accessibility certification is claimed for this increment.
 
@@ -357,13 +359,13 @@ Browser checks confirm Discover → Deal sourcing → Industry research, optiona
 Supabase metadata checks confirm a healthy project, RLS on all 11 application tables, a private 20MiB evidence bucket, and no anonymous/authenticated table grants on private allowance tables. Those metadata checks do not establish actual two-user hosted requests. Cloud signup/confirmation/reset, grounded Gemini cloud answers, live worker/storage/telemetry and authorized licensed integrations remain acceptance gates. Firecrawl chat credits are exhausted and its runtime key is not configured; X/Apollo/LinkedIn/calendar synchronization are not established. No credential file was opened, no persistent QA account created, no user records migrated, and no GitHub push or Vercel deployment occurred. See RELEASE_READINESS.md for operator steps and remaining production gates.
 
 
-## Integration status and admission cross-check — 5 October 2026
+## Integration status and admission cross-check - 5 October 2026
 
 Pages 5–10, 15 and 26–30: all 18 catalogue entries were checked against account policy and runtime configuration. Misleading connection/index/worker labels were corrected. Shared capability checks reject unavailable jobs before persistence, and connection/file/job failures load independently. Cloud Compose now aligns API and worker job storage. No hosted permission was broadened.
 
 The full isolated backend suite passes 184 tests with pinned PyJWT 2.15.1; 15 frontend tests, scoped lint and the 40-route production build pass. A live semiconductor search reached both official public Product Hunt/GitHub adapters; it produced no matching recent Product Hunt launches and unverified repository references. Supabase metadata confirms a healthy project, RLS/policies on all 11 application tables, private evidence storage and deliberately restricted internal allowances. Gemini requires cloud sign-in; Firecrawl has no app runtime key and separate chat credits are exhausted. Live cloud login/recovery, two-user HTTP isolation, calendar, storage, indexing/worker delivery, telemetry and hosted/container performance remain separate acceptance gates. Full findings and screenshot: INTEGRATION_CROSSCHECK.md. This does not complete every PDF release criterion or certify production security.
 
-## Sign-in feedback and logo navigation — 5 October 2026
+## Sign-in feedback and logo navigation - 5 October 2026
 
 The returning-user failure was diagnosed using only the named account's confirmation/block status and sign-in timestamps, plus aggregate provider error codes and HTTP statuses. Earlier failed password grants returned `email_not_confirmed`; later grants succeeded. The browser reached the authenticated homepage and retained the session after the local frontend restart. No password, saved browser credential, private settings content, token or authentication request body was inspected or changed.
 
@@ -373,13 +375,13 @@ Every shared Whistle logo now links to `/`, including authentication/public scre
 
 Verification: all 20 frontend tests pass, including five auth feedback cases; scoped lint and the final 40-route production build/TypeScript pass. The local website was restarted with the final build. Screenshot: `screenshots/logo-home-verified.png`. Live confirmation resend and password recovery delivery were not exercised; their UI uses the documented Supabase methods. Backend code and cloud security settings were unchanged by this fix.
 
-## Native dropdown readability — 5 October 2026
+## Native dropdown readability - 5 October 2026
 
 The user-reported Discover Geography/Stage menu issue was reproduced in computed styles: native options inherited ivory text with a transparent background, allowing Windows to draw a white popup behind them. The shared palette now supplies an explicit, paired option/optgroup foreground and background in both themes. Dedicated inherited tokens keep option colors paired even inside dark chrome. Existing native selection, keyboard behavior, filters and layout remain.
 
 The final 40-route production build/TypeScript passes. A fresh authenticated Discover tab checks 33 option items in each theme: minimum computed text/background contrast is 14.04:1 in dark mode and 15.70:1 in light mode. Geography India and Stage Seed selections were exercised and restored to All without running or saving a search. Dark mode was restored. No records or account permissions changed. The local preview is running with the updated build; a previously cached in-app error tab required a fresh preview tab. Screenshot: `screenshots/dropdown-contrast-verified.png`. The browser screenshot API does not include the operating-system popup itself; the evidence combines the corrected option colors, contrast measurements and successful native selections, rather than claiming a screenshot of the Windows popup.
 
-## Today overview and separate Reviews — 5 October 2026
+## Today overview and separate Reviews - 5 October 2026
 
 The previous Today controls changed an inline queue or selected a preview rather than opening work. Its category strip and tall inner queue required extra scrolling. Following the user's explicit choice, `/reviews` now owns the complete queue. Today has a daily overview with four linked counts, three directly openable priorities, meetings/follow-ups and a five-record pipeline snapshot. A contextual Daily overview / Reviews navigation retains the five main destinations; workspace search can also find Reviews. Company guidance remains available in an optional disclosure.
 

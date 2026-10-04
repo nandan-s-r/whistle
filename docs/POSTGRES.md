@@ -1,6 +1,6 @@
 # PostgreSQL preparation
 
-This guide describes the optional legacy SQLAlchemy migration path. The primary cloud workspace now uses the separate Supabase project and its `vc_*` tables, RLS and Storage; see `PLATFORM_SETUP.md`. This script does not migrate local workspace records into Supabase's new schema or link local and cloud identities. The local preview preserves SQLite accounts while Supabase sign-in opens its own cloud workspace.
+Use this guide only for the legacy SQLAlchemy database migration. The main cloud workspace uses Supabase and its own tables and permissions. This migration does not transfer local research into the cloud workspace or merge account identities. Follow [platform setup](PLATFORM_SETUP.md) for Supabase.
 
 The Python API supports PostgreSQL through SQLAlchemy and psycopg 3. The psycopg driver is installed in the local virtual environment. PostgreSQL URLs beginning with `postgres://` or `postgresql://` are normalized to the psycopg driver; explicit driver URLs are retained. Database metadata compiles against PostgreSQL in automated checks.
 

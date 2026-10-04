@@ -1,6 +1,6 @@
-# Original VC Scope reference — 4 October 2026
+# Original VC Scope reference - 4 October 2026
 
-The user reiterated that [nandan-s-r/vc-scope-os](https://github.com/nandan-s-r/vc-scope-os) must inform Whistle. This is the workspace's configured origin. A read-only GitHub API check resolves `master` to `44272b288a17073ee1da7e8e4ae69446e3529d23`, dated 1 July 2026. The current Whistle branding, Pipeline and evidence-review changes remain local; this review does not push or deploy them.
+This is the 4 October comparison with the [original VC Scope repository](https://github.com/nandan-s-r/vc-scope-os). The reviewed master revision was `44272b288a17073ee1da7e8e4ae69446e3529d23`, dated 1 July 2026. The new Whistle repository has its own history and remote. This note explains which earlier investment workflows were worth retaining.
 
 The PDF remains the primary product specification. The user's selected minimal Linear/Attio direction and supplied Whistle logo remain the design choices. Use the original repository to preserve useful investment jobs and identify missing continuity, rather than treating every legacy screen or README promise as a working integration.
 
@@ -27,4 +27,4 @@ The original meetings page retrieves saved records, and the memo page calls a ge
 
 The next product gap to evaluate is document or transcript intake into the existing company review loop, with proposed claims, citations and human approval. Broad agent orchestration, automatic investment decisions and unrestricted people harvesting do not follow from this reference request. Full live integrations and production release gates remain in `ECOSYSTEM_STATUS.md` and `BLUEPRINT_ACCEPTANCE.md`.
 
-No application code, private settings, existing investment records, deployed service or GitHub content was changed by this review.
+This was a read-only source comparison. It did not change investment records or private settings.

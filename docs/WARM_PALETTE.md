@@ -1,6 +1,6 @@
-# Whistle warm palette — 4 October 2026
+# Whistle warm palette - 4 October 2026
 
-The user explicitly selected this palette and asked for it throughout the website. It supersedes the PDF colour specification; the PDF investment workflows, five destinations, six company tabs and responsive navigation remain in effect.
+Whistle uses warm ivory, white, charcoal, stone grey and burnt orange. This palette replaced the earlier navy and blue choices on 4 October. Colours changed; the investment workflow, company tabs and review rules stayed intact.
 
 | Role | Light appearance |
 | --- | --- |

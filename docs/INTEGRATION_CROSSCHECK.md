@@ -1,6 +1,6 @@
-# Whistle integration cross-check — 5 October 2026
+# Whistle integration cross-check - 5 October 2026
 
-Scope: the 18-entry app connection catalogue, provider account gates, job admission and deployment wiring. An installed chat MCP is separate from a Whistle runtime integration. This is a configuration/workflow review, not an exhaustive security certification or hosted acceptance.
+This review checked the 18-service catalogue, account requirements, job admission and deployment configuration on 5 October. A chat connector and an app integration are separate connections. The local results below do not prove hosted delivery. Use [deployment status](DEPLOYMENT.md) for the live projects and remaining setup.
 
 ## Current account and acceptance boundaries
 

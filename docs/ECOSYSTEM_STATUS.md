@@ -1,6 +1,6 @@
-# Whistle ecosystem status — 4 October 2026
+# Whistle ecosystem status - 4 October 2026
 
-The user approved the expanded ecosystem work and supplied answers to 30 product questions. The 31-page blueprint remains the product foundation. This register distinguishes delivered behavior from release work; it does not declare the complete ecosystem finished.
+This register tracks the connected investment workflows and the 30 product questions that shaped them. Start with a weekly review of changed evidence and unresolved decisions. The tables record what was built and what still needs work; they do not establish customer demand or a finished ecosystem. See [deployment status](DEPLOYMENT.md) for the current hosted setup.
 
 ## Primary recurring job
 
@@ -25,11 +25,11 @@ Start with a weekly review of changed investment premises: inspect new observati
 | --- | --- |
 | 1. Valuable recurring review | Weekly changed-premise review selected; real willingness to pay is unknown. |
 | 2. Buyer/data approval | Fund administrator controls membership and deal grants; actual procurement and data approval depend on the customer. |
-| 3. Empty account | Capture one company/source, review it, import selected material or explicitly open a fictional example. External discovery feeds remain unavailable. |
+| 3. Empty account | Capture one company/source, review it, import selected material or explicitly open a fictional example. Public Product Hunt and GitHub searches were added later; licensed feeds still need setup. |
 | 4. Authoritative system | Recorded opportunities and exported artifacts coexist with an existing pipeline. No CRM synchronization/source-of-truth claim. |
 | 5. Sensitive information | Membership alone exposes no deals. Administrators see all fund records. Sensitive meetings require a restricted deal; separate meeting/IC permissions within one deal remain open. |
 | 6. Canonical claim changes | An authenticated writer with deal-level write permission can submit a rationale and sourced evidence review. Revision checks and snapshots retain prior states. Pending AI drafts do not overwrite claims. Finer reviewer/partner approval authority remains open. |
-| 7. Verified | A bounded human-reviewed claim/observation linked to captured evidence. Founder-reported remains separate. Operating forecasts are explicitly assumptions even when starting data has a source. |
+| 7. Verified | A specific human-reviewed claim/observation linked to captured evidence. Founder-reported remains separate. Operating forecasts are explicitly assumptions even when starting data has a source. |
 | 8. Source independence | Declared origin chains are validated and cycle-free. Matching URLs or sufficiently long repeated excerpts suggest a dependency for review. Unlinked sources do not become independent confirmations; semantic syndicated-news detection remains open. |
 | 9. Metric definitions | Observations preserve definitions, units, currencies and reporting periods. A changed definition requires a separate metric. User-selected business metrics are supported; industry templates remain open. |
 | 10. Missing source | Captured excerpt, URL and method remain; original-link availability can be marked unavailable. This is not a complete licensed archive/backup service. |

@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Whistle website
 
-## Getting Started
+This directory contains Whistle's Next.js and React frontend. It provides the research workspace, company tabs, account screens and public information pages.
 
-First, run the development server:
+## Start locally
 
-```bash
+Run the API on port 8000 using [the repository setup](../docs/LOCAL_PREVIEW.md). Then, from this directory:
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://127.0.0.1:3000`. Set `BACKEND_URL=http://127.0.0.1:8000` in your local frontend configuration if needed. Keep local configuration out of Git.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Cloud configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The frontend needs the Supabase project URL and public publishable key. It sends API requests through the configured backend.
 
-## Learn More
+Production builds require an HTTPS `BACKEND_URL`. Keep `NEXT_PUBLIC_LOCAL_AUTH` disabled on a hosted site. Gemini, Firecrawl and service-role credentials belong on the server, never in frontend settings.
 
-To learn more about Next.js, take a look at the following resources:
+See [deployment notes](../docs/DEPLOYMENT.md) for the live projects and remaining account checks.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Check a change
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+node --test tests/*.test.mjs
+npm run lint:workspace
+npm run build
+```
 
-## Deploy on Vercel
+Run `npm run test:e2e` only against an isolated test backend. The tests create accounts and research records.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Read the installed Next.js documentation before changing framework behavior; this project uses APIs that may differ from earlier versions. The local font assets include their redistribution license.

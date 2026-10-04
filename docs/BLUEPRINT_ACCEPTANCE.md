@@ -1,10 +1,12 @@
-# Blueprint acceptance register
+# Blueprint coverage
 
-## Integration depth and activity dates — 5 October 2026
+This register maps the original 31-page specification to implemented work and remaining checks. The page numbers and earlier test results are retained. Later changes, including the warm palette and separate Reviews page, take precedence over older notes. Use [deployment status](DEPLOYMENT.md) for the hosted release.
+
+## Integration depth and activity dates - 5 October 2026
 
 Pages 5–10, 15 and 26–30 gain a scoped read-only Calendly adapter, selected-meeting intake into existing company reviews, compact optional connection setup and direct team-permission access. Pipeline/Portfolio distinguish replies, contact and upcoming meetings. Optional original activity time preserves when an earlier reply actually happened; save time remains in revision history. Twelve new isolated boundaries plus the complete 174-test backend suite, 15 frontend tests and the 40-route build/scoped lint pass. No cloud permissions were changed. Live Calendly credentials, public per-user OAuth, cloud team acceptance, licensed feeds and actual inbox synchronization remain open. See INTEGRATION_WORKFLOWS.md.
 
-## Unified industry research — 5 October 2026
+## Unified industry research - 5 October 2026
 
 The renewed sourcing request applies pages 4–10 and 26–30: one optional public prompt inside Discover, plain-language examples, source selection, account/provider capabilities, dated launch/project references and independent source statuses. Gemini's brief requests founder history, product/customer evidence, competitors and explicit unknowns; grounded content stays temporary, with UTF-8 byte-accurate citation excerpts. Concurrent public calls retain existing permissions and allowances. An observed GitHub tutorial-list relevance failure was corrected with topics, activity bounds and reference-list filtering.
 
@@ -12,7 +14,7 @@ Final verification passes 162 backend tests, 15 frontend tests, the 40-route pro
 
 The page-by-page table includes the ecosystem implementation on 4 October 2026 following the complete 31-page reread on 3 October. Dated milestones below preserve historical evidence and test counts. The user's expanded requirements and their remaining boundaries are tracked in [ECOSYSTEM_STATUS.md](ECOSYSTEM_STATUS.md).
 
-Primary source: [VC Scope Complete Product/UIUX Blueprint v2](C:/Users/srnan/Documents/Codex/2026-09-26/https-github-com-nandan-s-r/outputs/pdf/VC_Scope_Complete_Product_UIUX_Blueprint_v2.pdf), all 31 pages. Rechecked on 3 October 2026 after the user reiterated that the PDF must guide the build.
+Primary source: the supplied **VC Scope Complete Product/UIUX Blueprint v2**, all 31 pages. It was rechecked on 3 October 2026. The original PDF is a local reference, not a file distributed in this repository.
 
 The user-approved warm palette of 4 October 2026 supersedes the PDF colour values on pages 19–20. Ivory canvas, white cards, warm charcoal navigation/text, stone supporting text and burnt orange actions now share one colour system across the website, including warm dark mode. The investment workflow and navigation are preserved. See [WARM_PALETTE.md](WARM_PALETTE.md) and VERIFICATION.md for current bounded UI verification. This palette override does not close hosted or independent-user acceptance.
 
@@ -79,7 +81,7 @@ The user supplied a replacement Whistle logo on 4 October. Its original PNG is s
 
 These sections preserve earlier verification; their counts and pending entries are not the current assessment.
 
-### Platform and real-source milestone — 3 October 2026
+### Platform and real-source milestone - 3 October 2026
 
 Historical milestone: these changes were implemented after the initial demonstration. They are now incorporated in the current table above:
 
@@ -90,7 +92,7 @@ Historical milestone: these changes were implemented after the initial demonstra
 
 See `PLATFORM_SETUP.md` and `VERIFICATION.md` for evidence and limits. Hosted email confirmation, live provider/worker requests, Storage HTTP upload, Realtime delivery, telemetry and container execution remain unverified.
 
-## Connected diligence and review milestone — 3 October 2026
+## Connected diligence and review milestone - 3 October 2026
 
 - Pages 9, 11 and 21: tasks can be planned from an unresolved claim, assigned a display owner and calendar date, blocked, completed with an outcome and captured source, and reopened. Today links to each due unfinished task. Completing a task does not verify its claim or resolve an independent conflict/draft.
 - Pages 13 and 25: new memos preserve the diligence outcomes and research fingerprint. Comments sit alongside a selected frozen version. A changed current record warns that a new memo is needed. Decisions preserve the selected memo/model version and evidence revision.
@@ -98,17 +100,17 @@ See `PLATFORM_SETUP.md` and `VERIFICATION.md` for evidence and limits. Hosted em
 - The actual Locus record has four captured public sources, three claims, a blocked investability check and an evidence-only Pass memo. No valuation, customer economics or returns were invented to force a model. Its latest inspected package is revision 14 / memo 3; older frozen versions remain available. Founder employment and product claims still need independent review. This is a sourced rejection case, not the required flagship investment model.
 - Verification: 48 backend tests, six queue tests, three Edge browser flows, scoped ESLint and the 37-route production build pass. The real archive's integrity, selected version and missing-model boundary were checked independently through the local authenticated API. The IAB download-event wait timed out; Edge's UI download test passed. The final IAB page has no captured console errors. See `screenshots/connected-diligence.png`.
 
-## UI and UX redesign milestone — 3 October 2026
+## UI and UX redesign milestone - 3 October 2026
 
 Pages 15, 19–20, 22–24, 26–27 and 30 now have a shared, compact workspace treatment: labelled navigation, local Geist typography, company tables and progressive details/filters, grouped Library references, explicit demo/research states, clearer company sections and summary metric links. Public Affinity, Harmonic, Dealroom, Taghash and Model ML references informed workflow patterns; the PDF remains authoritative. Global search focus handling and phone/tablet/laptop layouts were inspected. Production build, scoped lint and the three existing Edge flows pass after the main redesign. See `UIUX_REDESIGN.md` for precise coverage and screenshots.
 
 Saved working-state persistence, comprehensive contrast/screen-reader/200% zoom checks, and the PDF's two-user timed validation remain open. This milestone does not close real-data, export or release acceptance requirements.
 
-## Guided exploration and memo reading — 3 October 2026
+## Guided exploration and memo reading - 3 October 2026
 
 Pages 4, 13, 15, 21–24 and 28–30: Today now presents an interactive source/question/judgment story from actual records; its counters filter the queue. Explore provides a company walkthrough and plain-language definitions. Company tabs offer contextual guidance. The selected frozen memo has an outline, readable sections, numbered source inspection and an unchanged original-text view/export. Native modals preserve focus and background scrolling, and reduced-motion preferences are respected. The build, workspace lint, three existing browser workflows and the additional guide/frozen-citation workflow pass. See `UIUX_EXPLORATION.md` for the broader public research and verification boundaries. First-time user validation and a full accessibility audit remain open.
 
-## Decision workspace verification — 3 October 2026
+## Decision workspace verification - 3 October 2026
 
 The latest redesign supersedes the earlier pending entries for session view persistence, Today J/K and company E/M shortcuts, latest recorded company activity, and the 1024/768 viewport checks. Today now has actionable priorities and a selected-question preview; Pipeline offers recorded-decision board/table views; Library sections have direct links; signup uses plain language; and account/settings/sign-out controls work on phones. Source/task drawers use native modals with keyboard-accessible scrolling. The diligence filter survives closing a task deep link, fixing a save/navigation reset found in browser testing.
 
@@ -116,11 +118,11 @@ Verification includes 64 backend tests, six queue tests, five browser workflows,
 
 Comprehensive assistive-technology testing, actual browser zoom and novice-user/timed acceptance remain open. The earlier real-company, underwriting, artifact-export and live-integration gaps are not closed by this UI milestone.
 
-## Light and dark appearance — 3 October 2026
+## Light and dark appearance - 3 October 2026
 
 The user's requested optional dark theme is now implemented alongside the PDF's default light theme. A labelled 44px light/dark switch is available in the workspace and authentication screens. Appearance persists across navigation/reloads and syncs across tabs; controls work when preference writes are refused. Ten workspace routes were checked in both themes at 1440/768/390px (60 combinations), plus 52 automated accessibility checks covering the pages, authentication, evidence drawers and account menus. Six browser workflows, production build and scoped lint pass. This adds an appearance preference without changing evidence labels, data, permissions or frozen documents. See `UIUX_THEME.md`.
 
-## Sourcing and review studio — 3 October 2026
+## Sourcing and review studio - 3 October 2026
 
 The complete 31-page PDF was reread for this request, including rendered navigation/visual/artifact pages. Its five global destinations and six company tabs remain authoritative; the legacy GitHub tool catalog informed features inside those workflows.
 
@@ -131,7 +133,7 @@ The complete 31-page PDF was reread for this request, including rendered navigat
 
 Verification: the 37-route production build and scoped lint, 75 backend tests, six queue tests and all seven Edge flows pass. The theme/studio audits cover 60 layout and 84 automated accessibility checks with no detected violations or overflow. Native artifacts were rendered/inspected; PowerPoint structural integrity passes, and workbook edits recalculate. See UIUX_REVIEW_STUDIO.md and VERIFICATION.md for limitations.
 
-## Model review and product quality — 3 October 2026
+## Model review and product quality - 3 October 2026
 
 Pages 4, 12–13, 15 and 27–28 now include per-assumption rationale and optional captured-source editing, frozen model version comparison, changed input/provenance/owner explanations, and independently displayed MOIC/IRR effects. Notes are draft changes until a new model freezes; older models, memos and linked workbook exports retain their snapshots. This closes the local model comparison and assumption-specific rationale editing gaps. Operating ARR paths, outcome learning and independently reviewed real financial inputs remain open. Risk assessments were completed in the later product-review milestone.
 
@@ -139,7 +141,7 @@ Superseded Discover searches are cancelled and late results ignored; errors iden
 
 Verification: 78 backend tests, eight frontend tests, nine distinct Edge workflows across the latest full/targeted runs, the 37-route TypeScript production build and scoped lint pass. Both themes pass 60 layout and 92 automated accessibility checks. A real mobile overflow found during testing was fixed. The current local result is reviewable; live integrations, hosted latency, assistive-technology/novice-user acceptance and portfolio-ready release requirements are still unverified. See VERIFICATION.md for exact run history.
 
-## Brand, language and calculation milestone — 3 October 2026
+## Brand, language and calculation milestone - 3 October 2026
 
 The complete 31-page reread is reflected in the current table above. Shared ScopeMark identity replaces the two inconsistent logos across authentication, navigation and browser/native icons. Visible workflow headings, empty states and authentication text now describe specific actions. Five public information pages no longer claim unavailable live features, a fabricated support address or unestablished privacy/security agreements.
 
@@ -147,7 +149,7 @@ Pages 12, 22 and 27: saved scenario returns, ownership/invested-capital values a
 
 Verification: 81 backend tests, eight frontend tests, all nine Edge workflows in one full run, the 39-route TypeScript production build and scoped lint pass. Final CSS was rechecked by the build and all theme/studio/public audits: 80 page layouts and 116 automated accessibility checks pass. BRAND_AND_CONTENT.md and VERIFICATION.md record exact history and boundaries.
 
-## Managed risk and product assessment milestone — 3 October 2026
+## Managed risk and product assessment milestone - 3 October 2026
 
 Pages 11 and 21 now connect editable risk assessments to review work: rationale, owned claim/source references, owner/date, separate Today obligations and source-backed mitigation/reopening. Actual authenticated reviewer/time and historical revisions are retained. Mitigation does not verify a claim or dismiss independent conflicts, diligence tasks or drafts. New memo snapshots include the current risk assessment; older memo versions remain unchanged. Additive legacy defaults preserve unchanged research fingerprints.
 
@@ -165,7 +167,7 @@ Verification: 85 backend tests, nine frontend tests, ten distinct Edge workflows
 
 The separate Supabase database is created. External credentials, hosted Auth confirmation, live integration validation and deployment remain separate setup requirements. They do not block the remaining work-sample, UI and export milestones. Do not use unavailable credentials as a reason to call this register complete.
 
-## Industry sourcing, activity and returning accounts — 4 October 2026
+## Industry sourcing, activity and returning accounts - 4 October 2026
 
 Pages 4–10 and 26–30 retain the thesis/discovery journey and simple navigation. Discover → Deal sourcing now includes an industry prompt with Google-grounded Gemini drafts and separate optional GitHub/Firecrawl searches. Citations, provider failures, source dependence and unknowns remain explicit; Google-grounded answers are temporary and do not enter a database automatically. A real public GitHub portal search returned five repository references, with company/founder/adoption status explicitly unverified. A live cloud Gemini grounded answer, Firecrawl credits/runtime setup and unrestricted LinkedIn/X access are not established.
 
@@ -174,21 +176,21 @@ Pages 13, 21–22 and 25 retain recorded decisions and monitoring boundaries. Pi
 Cloud sign-in is the default when configured, local preview is clearly separate, returning local accounts preserve owned work, signup sessions use the same seven-day lifetime as local login, and cloud password recovery is implemented without duplicate PKCE exchange. The reset event is retained across AuthProvider initialization. Malformed authorized records are quarantined so valid workspace/search/intake remain usable; immutable history/access checks stay intact. Hosted email/session, multi-user HTTP permissions, worker/storage, container and performance acceptance remain open. See DEAL_SOURCING.md, RELEASE_READINESS.md and the current security workbench report. This does not complete every PDF release criterion.
 
 
-## Integration status and admission cross-check — 5 October 2026
+## Integration status and admission cross-check - 5 October 2026
 
 Pages 5–10, 15 and 26–30: all 18 catalogue entries were checked against account policy and runtime configuration. Misleading connection/index/worker labels were corrected. Shared capability checks reject unavailable jobs before persistence, and connection/file/job failures load independently. Cloud Compose now aligns API and worker job storage. No hosted permission was broadened.
 
 The full isolated backend suite passes 184 tests with pinned PyJWT 2.15.1; 15 frontend tests, scoped lint and the 40-route production build pass. A live semiconductor search reached both official public Product Hunt/GitHub adapters; it produced no matching recent Product Hunt launches and unverified repository references. Supabase metadata confirms a healthy project, RLS/policies on all 11 application tables, private evidence storage and deliberately restricted internal allowances. Gemini requires cloud sign-in; Firecrawl has no app runtime key and separate chat credits are exhausted. Live cloud login/recovery, two-user HTTP isolation, calendar, storage, indexing/worker delivery, telemetry and hosted/container performance remain separate acceptance gates. Full findings and screenshot: INTEGRATION_CROSSCHECK.md. This does not complete every PDF release criterion or certify production security.
 
-## Returning-user sign-in and shared home navigation — 5 October 2026
+## Returning-user sign-in and shared home navigation - 5 October 2026
 
 The authentication/continuity requirements now include safe, specific cloud-auth failure guidance and optional user-triggered confirmation resend, distinguishing an unconfirmed email from incorrect credentials or unavailable services. Existing confirmation enforcement remains. Every shared logo points to the homepage, with accessible naming and a tooltip. The named account's confirmed status and subsequent successful login were checked without reading credentials; browser session restoration and Library → logo → homepage navigation were observed. Twenty frontend tests, scoped lint and the final 40-route build/TypeScript pass. Live resend/recovery delivery remains untested. See VERIFICATION.md and its screenshot for this bounded result.
 
-## Native menu text contrast — 5 October 2026
+## Native menu text contrast - 5 October 2026
 
 Pages 19–20 readability now covers native dropdown option/optgroup colors with explicit foreground/background pairs in both themes. Discover checks cover 33 options per theme (minimum computed contrast 14.04:1 dark, 15.70:1 light), plus Geography and Stage selection/restoration. The 40-route production build/TypeScript passes. Existing filters and native keyboard behavior remain. See VERIFICATION.md for screenshot and operating-system popup capture limits.
 
-## Separate Reviews page and daily overview — 5 October 2026
+## Separate Reviews page and daily overview - 5 October 2026
 
 The user approved a separate Reviews page opened from Today. Pages 19–20 and 26–30 now use two contextual destinations under Today: Daily overview and Reviews, retaining the five global destinations and six company tabs. Today shows linked review totals, three next reviews, planned meetings with overdue outcomes, and five pipeline records. The full queue is at `/reviews`, with URL-based categories, company/question/owner search, direct review links, empty-result recovery and 25-item pagination. Opening a review does not complete it or change its evidence.
 

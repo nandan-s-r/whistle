@@ -1,8 +1,8 @@
-# VC Scope product assessment and execution gates — 3 October 2026
+# Whistle product assessment - 3 October 2026
 
 ## Assessment
 
-VC Scope has a coherent local research workflow and useful preservation of evidence and decisions. It is not yet established as a production investment-research product. The main constraints are the quality of real research, completeness of the decision workflow, independent user validation and hosted operational evidence. Visual polish supports those foundations.
+This assessment records the local product as it stood on 3 October. The main questions were whether the research supported a useful decision, whether another investor could inspect it, and whether the hosted services worked. Several gaps were addressed later; see [ecosystem status](ECOSYSTEM_STATUS.md), [deal sourcing](DEAL_SOURCING.md) and [deployment status](DEPLOYMENT.md) before treating an item below as current.
 
 The target launch user should be explicit: an analyst or small early-stage venture team researching India B2B companies. The first success is a sourced company screen, a defensible financial scenario when inputs exist, and a readable investment view that another person can inspect. The PDF remains authoritative; BLUEPRINT_ACCEPTANCE.md tracks its 31 pages.
 
@@ -31,7 +31,7 @@ Findings below are based on the code and current local checks. Investor acceptan
 4. **Validate the experience.** Run the PDF’s three clean end-to-end demonstrations, under-three-minute screen and five-minute review targets with the two venture users. Inspect actual 200% zoom and screen-reader behavior. The target times are acceptance goals, not measured results.
 5. **Verify a small hosted pilot.** Complete permissions, live services, restoration, budgets, monitored failures and final hosted policies before broad sharing. Load-test list/history/search with at least 300 representative companies and repeated versions, then choose and measure a response-time budget. Deployment still requires explicit authorization.
 
-Each item has a measurable exit. “Best” is treated as a high quality bar, not a completion claim.
+Finish each item against its stated checks. A polished demo alone is not evidence of a useful investment product.
 
 ## Workflow reference
 

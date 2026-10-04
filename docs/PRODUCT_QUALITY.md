@@ -1,6 +1,6 @@
-# Product quality and model review — 3 October 2026
+# Product quality and model review - 3 October 2026
 
-The PDF remains the product specification. This update improves the connected Discover → Model → Memo workflow inside the existing destinations.
+This 3 October review covers changes to model reasoning, comparisons and the Discover-to-Memo workflow. The measurements below were taken on local servers. They explain the changes without claiming the same speed or research quality on a hosted account.
 
 ## Product references
 

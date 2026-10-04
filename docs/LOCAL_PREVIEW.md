@@ -1,6 +1,6 @@
-# Running the upgraded workspace locally
+# Run Whistle locally
 
-The source is in this checkout. Read PLATFORM_SETUP.md for the current Supabase, Storage, vector, jobs and private-key setup. The historical template-only examples below remain available locally. No deployment or remote GitHub update has been performed.
+Run the API and website separately. This guide covers local accounts and the optional fictional sample. Cloud accounts use a separate workspace. For the deployed website and its remaining account checks, use [deployment status](DEPLOYMENT.md); for files, workers and permissions, use [platform setup](PLATFORM_SETUP.md).
 
 ## Start
 
@@ -29,7 +29,7 @@ Today → Discover → saved India B2B / ex-MBB search → inspect AtlasOps scor
 
 The Evidence tab exposes claim/source links and review states. Diligence connects risks to questions. Model calculates and freezes scenarios. Memo retains the model version and approved source snapshot. Monitor shows source-linked actuals and threshold changes. The contextual assistant creates a separate draft that can be approved as a note or rejected.
 
-In Diligence, **Plan a task** or **Plan this check** turns a claim question into editable work with an owner, due date, priority and status. Completion requires a written outcome and captured source; it never automatically verifies the claim. Today opens each due unfinished task directly. Reopening preserves its outcome while clearing its completion metadata.
+In Diligence, **Plan a task** or **Plan this check** turns a claim question into editable work with an owner, due date, priority and status. Completion requires a written outcome and captured source; it never automatically verifies the claim. Reviews opens each due unfinished task directly. Reopening preserves its outcome while clearing its completion metadata.
 
 Memo versions freeze the research and diligence outcomes. Add review comments beside the selected version; current-record changes show a warning instead of rewriting it. A decision can bind that selected memo and its frozen model. A reasoned formal Pass may have an evidence-only memo with missing financials explicit. **Download review pack** creates an owned ZIP of current claims/sources/tasks and the selected memo/model, using PDF, editable PowerPoint, Excel, text, JSON and CSV. An evidence-only Pass memo remains exportable without inventing a financial model.
 
@@ -46,12 +46,12 @@ In Model, select **Explain this assumption** beside an input to record your rati
 
 In Model, click a return, ownership/invested-capital value or sensitivity cell to inspect **How this return is calculated**. The drawer uses the selected frozen version, shows its inputs and formulas, and preserves captured sources. Scenario IRR includes dated annual cash flows; sensitivity cells show MOIC without inventing an IRR. Undefined IRR scenarios are rejected with an explanation before a new version saves.
 
-In Diligence, **Record a risk** links a concern to a claim, with severity, impact rationale, owner and review date. Due open assessments appear on Today under **Risk review**. **Review risk** can mark a concern Mitigated only with an explanation and a captured source; this does not verify the claim. Choose **Mitigated** or **All risks** to reopen an assessment. New memos preserve the updated risk view; older memo versions stay unchanged.
+In Diligence, **Record a risk** links a concern to a claim, with severity, impact rationale, owner and review date. Due open assessments appear in Reviews under **Risk review**. **Review risk** can mark a concern Mitigated only with an explanation and a captured source; this does not verify the claim. Choose **Mitigated** or **All risks** to reopen an assessment. New memos preserve the updated risk view; older memo versions stay unchanged.
 
-## Honest simulation boundaries
+## Sample data and limits
 
 - Four companies are labelled fictional demonstration records. The separately captured Locus record uses public sources and a recorded Pass rationale; absent financial metrics remain absent.
-- Search filters existing workspace records; it does not search the public web.
+- Saved-company search filters workspace records. Industry research separately queries available public providers.
 - Screening and IC generation use deterministic, cited templates.
 - The assistant uses evidence rules until configured. The Gemini adapter runs only when requested with its private key supplied.
 - Portfolio thresholds are calculated when records are reviewed. Library → Connections & imports provides persistent research/web/indexing task review. Web capture and cloud indexing require private keys; no automatic monitoring feed is active.

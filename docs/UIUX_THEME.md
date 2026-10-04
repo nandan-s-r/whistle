@@ -1,6 +1,6 @@
-# Light and dark appearance — 3 October 2026
+# Light and dark appearance - 3 October 2026
 
-The user requested a light/dark toggle. Light remains the blueprint default; the optional dark palette preserves navigation, semantic evidence colours, sources and the same connected workflows.
+The light and dark switch changes appearance without changing records or permissions. The keyboard, persistence and layout checks below were run on 3 October. The later [warm palette](WARM_PALETTE.md) replaces the navy colours described in this earlier note.
 
 - The top-bar sun/moon switch is keyboard accessible, has a fixed “Dark mode” accessible name with an on/off state, and offers a 44px target. Authentication screens offer the same control.
 - A fixed, trusted bootstrap script restores the validated appearance before hydration. The only stored theme value is `light` or `dark`, under the versioned `vc-scope:theme:v1` key. No account data or credentials are included in this preference.

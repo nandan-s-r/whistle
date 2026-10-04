@@ -1,6 +1,6 @@
-# Decision workspace redesign — 3 October 2026
+# Decision workspace redesign - 3 October 2026
 
-The latest request was to make the application less boring and easier to explore while preserving the connected investment workflow. The 31-page VC Scope Product/UIUX Blueprint v2 remains the source of truth, particularly pages 15, 19–24 and 26–30. This is a local product milestone, not a completed production release.
+These 3 October design notes explain the daily review layout, company context, view preferences and keyboard controls. The review queue later moved to its own Reviews page. The warm palette also replaced the earlier colours. See [the user guide](USER_WALKTHROUGH.md) for the current navigation.
 
 ## Experience
 

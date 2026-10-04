@@ -1,6 +1,6 @@
 # Whistle local release preparation - 5 October 2026
 
-This document records the earlier local preparation checks. Whistle has since been published to a new GitHub repository and deployed to Vercel. See [current deployment status](DEPLOYMENT.md) for the live URLs, checks and remaining hosted acceptance work. The historical results below are not a security certification.
+These are the local preparation notes from 5 October. Whistle was later pushed to a new repository and deployed to Vercel. [Current deployment status](DEPLOYMENT.md) lists the live URLs, passed checks and work still to finish. Keep the earlier results below as a record of what was tested at that stage.
 
 ## Account choice and retained work
 

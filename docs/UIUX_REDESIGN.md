@@ -1,6 +1,6 @@
-# UI and UX redesign — 3 October 2026
+# UI and UX redesign - 3 October 2026
 
-The user rejected the large headline, repeated founder cards and icon-only navigation in the previous screenshot. The redesign treats VC Scope as a daily research tool: view controls first, a compact working canvas, inspectable evidence, and progressive detail. The 31-page product blueprint remains authoritative, particularly pages 15, 19–20 and 26–30.
+The 3 October redesign replaced large founder cards and icon-only navigation with compact company rows, clear controls and source inspection. It followed the workflow in the 31-page blueprint. This is a design record; later sourcing, palette and navigation changes are covered in the newer guides.
 
 ## Public product research
 

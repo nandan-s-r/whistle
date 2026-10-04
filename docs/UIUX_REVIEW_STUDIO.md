@@ -1,6 +1,6 @@
-# Sourcing and review studio — 3 October 2026
+# Sourcing and review studio - 3 October 2026
 
-The requested improvements now sit inside the blueprint's connected workspace: Discover → evidence → diligence → model → memo → review meeting. The complete PDF was reread, including pages 13–20 and the later navigation specification. This follows its calm light canvas/navy navigation and retains the optional dark theme, rather than restoring the legacy module grid.
+This 3 October update connected founder notes, source review, diligence, financial models, memos and meeting preparation. It kept the work inside the company workspace. The warm palette later replaced the navy layout described here; the source and version-history rules still apply.
 
 ## Product changes
 

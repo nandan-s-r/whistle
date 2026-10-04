@@ -1,6 +1,6 @@
-# Approachable research experience — 3 October 2026
+# Approachable research experience - 3 October 2026
 
-The user requested broader research, specifically WithAI, and an interface that interests people aged 25–30 who do not know much about AI. The design goal is a concrete first click, understandable evidence, and a finished document worth exploring. The product blueprint remains authoritative; five destinations, six company tabs, human review and frozen records are preserved.
+The 3 October design goal was to help a first-time investor find a useful starting point, inspect a source and understand a memo. The public product references below informed those choices. The notes describe that version of the interface; later navigation and colour changes are recorded separately.
 
 ## Additional public research
 
@@ -20,7 +20,7 @@ Earlier research of Affinity, Harmonic, Dealroom, Taghash and Model ML is record
 
 - Today has a navy/white research spotlight driven by an actual workspace record. Visitors can switch among its captured source, unanswered research question and recorded judgment. Each view links to the corresponding company tab. Real and fictional records remain explicitly labelled.
 - Review counters now filter the actual queue. Queue labels use shorter, understandable wording while preserving each item's underlying type and destination.
-- Explore is available from the shared top bar. Its optional walkthrough lets the user select a real or fictional company and open Evidence, Diligence or Memo directly. Six evidence states and useful terms—including Pass/Watch, MOIC and IRR—have plain-language explanations.
+- Explore is available from the shared top bar. Its optional walkthrough lets the user select a real or fictional company and open Evidence, Diligence or Memo directly. Six evidence states and useful terms, including Pass/Watch, MOIC and IRR, have plain-language explanations.
 - Company tabs have optional contextual explanations. Guidance does not change evidence, approve drafts, execute providers or mutate company records.
 - Memo uses a document layout, named chapters and an outline. Numbered citations inspect only the selected frozen memo's sources. Switching versions preserves the document's historic source scope. The complete original saved text remains accessible and export continues to use that original text.
 - Native modal dialogs provide focus containment and restoration. Background scroll is locked while inspecting the guide or a frozen source. Global command search does not open a competing overlay above these dialogs. Motion is brief and disabled for reduced-motion preferences.
