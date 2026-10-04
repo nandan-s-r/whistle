@@ -1,0 +1,18 @@
+.risk-assessment-form input:not([type="checkbox"]) { width:100%; min-height:44px; border:1px solid var(--theme-border); border-radius:6px; background:var(--theme-surface); color:var(--theme-text); padding:10px 12px; font:inherit; }
+.risk-review-row { display:flex; justify-content:space-between; gap:24px; padding:24px 0; border-bottom:1px solid var(--theme-border); align-items:flex-start; }
+.risk-review-row>div:first-child { min-width:0; flex:1; }
+.risk-review-row .mini-label { margin-left:12px; }
+.risk-review-row h3 { margin:12px 0 8px; }
+.risk-review-row p { margin:10px 0; overflow-wrap:anywhere; }
+.risk-review-row small { display:block; font-size:12px; color:var(--theme-link); line-height:1.7; overflow-wrap:anywhere; }
+.risk-review-row .risk-question { color:var(--theme-link); }
+.risk-review-row .button-row { flex-direction:column; align-items:flex-start; }
+.risk-register .queue-tabs { margin:20px 0 0; }
+@media(max-width:767px) {
+  .risk-review-row { flex-direction:column; gap:14px; }
+  .risk-review-row p { font-size:16px; }
+  .risk-review-row .button-row { flex-direction:row; flex-wrap:wrap; gap:16px; }
+  .risk-review-row .text-link { min-height:44px; }
+  .risk-register>.card-heading { flex-wrap:wrap; gap:14px; }
+  .risk-register>.card-heading .ws-button { min-height:44px; }
+}

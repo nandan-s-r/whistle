@@ -1,0 +1,80 @@
+name: Verify Whistle workspace
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+permissions:
+  contents: read
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  application:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      AUTH_PROVIDER: local
+      ENVIRONMENT: development
+      JWT_SECRET: ephemeral-ci-only-no-production-access
+      JOB_WORKER_MODE: embedded
+      WORKSPACE_PROVIDER: rules
+      BACKEND_URL: http://127.0.0.1:8000
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-workspace.txt -r requirements-platform.txt
+      - name: Audit resolved Python runtime dependencies
+        run: |
+          pip install pip-audit==2.10.1
+          python -m pip_audit -r requirements-platform.txt -r requirements-workspace.txt --progress-spinner off
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/check-release-secrets.py
+      - run: npm ci
+        working-directory: frontend
+      - run: npm audit --audit-level=high
+        working-directory: frontend
+      - run: npm run lint:workspace
+        working-directory: frontend
+      - run: node --test tests/*.test.mjs
+        working-directory: frontend
+      - run: npm run build
+        working-directory: frontend
+      - name: Start the isolated development API
+        run: uvicorn backend.api:app --host 127.0.0.1 --port 8000 --no-access-log --timeout-keep-alive 30 > /tmp/vc-scope-api.log 2>&1 &
+      - run: npx playwright install --with-deps chromium
+        working-directory: frontend
+      - run: npm run test:e2e
+        working-directory: frontend
+      - name: Build production API and worker image
+        run: docker build -f Dockerfile.api -t vc-scope-api:check .
+  database:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17
+        env:
+          POSTGRES_PASSWORD: ephemeral-ci
+          POSTGRES_DB: vc_scope_test
+        ports: ['5432:5432']
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install isolated Supabase auth/storage test schemas
+        env:
+          PGPASSWORD: ephemeral-ci
+        run: |
+          psql -h localhost -U postgres -d vc_scope_test -v ON_ERROR_STOP=1 -f supabase/tests/bootstrap.sql
+          for migration in supabase/migrations/*.sql; do psql -h localhost -U postgres -d vc_scope_test -v ON_ERROR_STOP=1 -f "$migration"; done
+          psql -h localhost -U postgres -d vc_scope_test -v ON_ERROR_STOP=1 -f supabase/tests/owner_isolation.sql
+          psql -h localhost -U postgres -d vc_scope_test -v ON_ERROR_STOP=1 -f supabase/tests/work_budgets.sql
+          psql -h localhost -U postgres -d vc_scope_test -v ON_ERROR_STOP=1 -f supabase/tests/fund_access.sql
+          psql -h localhost -U postgres -d vc_scope_test -v ON_ERROR_STOP=1 -f supabase/tests/frozen_records.sql
+          psql -h localhost -U postgres -d vc_scope_test -v ON_ERROR_STOP=1 -f supabase/tests/completed_holdings.sql

@@ -1,0 +1,15 @@
+fastapi==0.142.2
+pip==26.2.1
+uvicorn==0.54.0
+sqlalchemy==2.1.2
+httpx==0.28.1
+python-dotenv==1.2.4
+python-multipart==0.0.32
+bcrypt==5.0.0
+PyJWT[crypto]==2.15.1
+celery==5.5.3
+redis==6.4.0
+sentry-sdk==2.71.0
+psycopg==3.3.3
+psycopg-binary==3.3.3
+reportlab==4.4.9

@@ -1,0 +1,11 @@
+/* Appearance control geometry; colours are defined in palette.css. */
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 1px solid var(--theme-border); border-radius: 8px; background: var(--theme-surface); color: var(--theme-text); cursor: pointer; }
+.theme-toggle:hover { border-color: var(--theme-focus); }
+.theme-toggle:focus-visible { outline: 3px solid var(--theme-focus); outline-offset: 3px; }
+.auth-theme-toggle { position: fixed; top: 24px; right: 24px; z-index: 5; }
+@media(max-width:767px) {
+  .workspace-shell .topbar-actions { gap: 6px; }
+  .workspace-shell .breadcrumb { gap: 7px; font-size: 11px; }
+  .workspace-shell .topbar-divider { display: none; }
+  .auth-theme-toggle { top: 12px; right: 16px; }
+}

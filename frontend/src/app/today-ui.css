@@ -1,0 +1,49 @@
+.today-sections { display: flex; gap: 24px; border-bottom: 1px solid var(--theme-border); margin-bottom: 28px; }
+.today-sections a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; color: var(--theme-muted); border-bottom: 2px solid transparent; }
+.today-sections a[aria-current="page"] { color: var(--theme-text); border-bottom-color: var(--theme-brand); }
+.today-metrics { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-bottom: 1px solid var(--theme-border); margin-bottom: 32px; }
+.today-metric { display: grid; grid-template-rows: minmax(40px,auto) 34px minmax(36px,auto); align-content: start; gap: 12px; padding: 18px 12px; color: var(--theme-text); }
+.today-metric:hover { background: var(--theme-raised); }
+.today-metric > span { display: flex; align-items: center; gap: 8px; font-size: 13px; line-height: 1.5; }
+.today-metric strong { font-size: 28px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.today-metric small { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--theme-muted); line-height: 1.5; }
+.today-section-heading, .reviews-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 18px; }
+.today-section-heading h2 { font-size: 20px; }
+.today-section-heading p, .reviews-heading p { font-size: 14px; color: var(--theme-muted); line-height: 1.6; margin-top: 8px; }
+.today-priorities { margin-bottom: 32px; }
+.today-review-row, .review-work-row { display: grid; grid-template-columns: 40px minmax(0,1fr) auto; align-items: center; gap: 16px; padding: 18px 0; border-top: 1px solid var(--theme-border); }
+.today-review-row:last-child { border-bottom: 1px solid var(--theme-border); }
+.today-review-company, .review-work-company { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14px; }
+.review-work-company > span:first-child { font-weight: 600; overflow-wrap: anywhere; }
+.today-review-title, .review-work-title { display: inline-block; margin-top: 7px; font-size: 14px; line-height: 1.5; color: var(--theme-text); overflow-wrap: anywhere; }
+.today-review-title:hover, .review-work-title:hover { text-decoration: underline; text-underline-offset: 3px; }
+.today-review-row p, .review-work-row p { margin-top: 7px; font-size: 12px; color: var(--theme-muted); line-height: 1.5; }
+.today-review-open, .review-work-open { min-height: 44px; white-space: nowrap; }
+.today-table-note, .today-meetings-toggle { padding: 16px 20px; color: var(--theme-muted); font-size: 13px; }
+.today-walkthrough { margin-top: 30px; border-top: 1px solid var(--theme-border); }
+.today-walkthrough summary { cursor: pointer; padding: 18px 0; min-height: 44px; font-size: 14px; }
+.reviews-list { border: 1px solid var(--theme-border); border-radius: 6px; background: var(--theme-surface); }
+.reviews-controls { display: flex; align-items: end; gap: 18px; flex-wrap: wrap; padding: 20px; }
+.reviews-controls label { display: grid; gap: 8px; font-size: 13px; }
+.reviews-controls select, .reviews-controls input { min-height: 44px; width: 100%; border: 1px solid var(--theme-border); border-radius: 5px; padding: 10px 12px; color: var(--theme-text); background: var(--theme-surface); font-size: 14px; }
+.reviews-search { flex: 1; min-width: 200px; }
+.reviews-result-count { font-size: 13px; color: var(--theme-muted); padding: 12px 20px; border-top: 1px solid var(--theme-border); }
+.review-work-row { padding: 18px 20px; }
+.review-work-copy { min-width: 0; }
+.reviews-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-top: 1px solid var(--theme-border); font-size: 13px; }
+.reviews-footnote { padding: 16px 0; color: var(--theme-muted); font-size: 13px; line-height: 1.6; }
+.today-sections a:focus-visible, .today-metric:focus-visible { outline: 2px solid var(--theme-focus); outline-offset: 3px; }
+@media(max-width:640px) {
+  .today-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .today-section-heading, .reviews-heading { flex-direction: column; align-items: start; }
+  .today-review-row, .review-work-row { grid-template-columns: 32px minmax(0,1fr); gap: 12px; }
+  .today-review-open, .review-work-open { grid-column: 2; justify-self: start; }
+  .today-review-title, .review-work-title { font-size: 16px; }
+  .today-review-row p, .review-work-row p { font-size: 13px; }
+  .reviews-controls { padding: 16px; }
+  .reviews-controls label { width: 100%; }
+  .reviews-search { min-width: 0; }
+  .reviews-controls select, .reviews-controls input { font-size: 16px; }
+  .review-work-row { padding: 18px 16px; }
+  .reviews-result-count { padding: 12px 16px; }
+}

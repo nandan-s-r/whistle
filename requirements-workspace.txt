@@ -1,0 +1,19 @@
+# API runtime for the evidence workspace and existing lightweight API routes.
+# Optional Streamlit / transcription / vector-store modules still use requirements.txt.
+fastapi>=0.109.2
+pydantic>=2.9
+uvicorn>=0.27.1
+sqlalchemy>=2.0.25
+psycopg[binary]>=3.2,<4
+python-dotenv>=1.0.1
+bcrypt>=4.1.2
+PyJWT[crypto]==2.15.1
+python-multipart>=0.0.9
+httpx>=0.26.0
+PyMuPDF>=1.23.0
+Pillow>=10
+reportlab==4.4.9
+google-genai
+groq>=0.4.2
+slowapi>=0.1.9
+requests>=2.31

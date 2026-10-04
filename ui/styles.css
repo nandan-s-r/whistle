@@ -1,0 +1,130 @@
+/* Linear-style Dark Mode Premium CSS for Streamlit */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Base Theme Variables */
+:root {
+    --bg-main: #0E0F12;
+    --bg-surface: #14161A;
+    --bg-card: rgba(20, 22, 26, 0.6);
+    --border-subtle: #2A2D35;
+    --text-primary: #EDEDED;
+    --text-secondary: #9CA3AF;
+    --accent-primary: #6366f1; /* Indigo */
+    --accent-hover: #4f46e5;
+    --status-success: #22c55e;
+    --status-warning: #f59e0b;
+    --status-danger: #ef4444;
+}
+
+/* Global Overrides */
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif !important;
+    background-color: var(--bg-main) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Hide Streamlit Clutter */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Card Style */
+.stCard {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+}
+
+.stCard:hover {
+    border-color: #333;
+    transform: translateY(-2px);
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em !important;
+}
+
+p {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+}
+
+/* Buttons */
+.stButton > button {
+    background-color: var(--accent-primary) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    transition: background-color 0.2s !important;
+}
+
+.stButton > button:hover {
+    background-color: var(--accent-hover) !important;
+}
+
+/* Sidebar Buttons */
+[data-testid="stSidebar"] .stButton > button {
+    background-color: transparent !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid transparent !important;
+    justify-content: flex-start !important;
+    padding-left: 10px !important;
+    font-weight: 500 !important;
+}
+
+[data-testid="stSidebar"] .stButton > button:hover {
+    background-color: rgba(99, 102, 241, 0.05) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-testid="stSidebar"] .stButton > button:focus,
+[data-testid="stSidebar"] .stButton > button:active {
+    background-color: rgba(99, 102, 241, 0.1) !important;
+    color: var(--accent-primary) !important;
+    border-left: 3px solid var(--accent-primary) !important;
+}
+
+/* Inputs & Textareas */
+.stTextInput > div > div > input, .stTextArea > div > textarea {
+    background-color: var(--bg-surface) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 6px !important;
+}
+
+.stTextInput > div > div > input:focus, .stTextArea > div > textarea:focus {
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 1px var(--accent-primary) !important;
+}
+
+/* Dataframes / AgGrid overrides */
+.ag-theme-alpine-dark {
+    --ag-background-color: var(--bg-card);
+    --ag-header-background-color: var(--bg-surface);
+    --ag-border-color: var(--border-subtle);
+    --ag-odd-row-background-color: var(--bg-main);
+}
+
+/* Badges */
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-success { background: rgba(34, 197, 94, 0.1); color: var(--status-success); border: 1px solid rgba(34, 197, 94, 0.2); }
+.badge-warning { background: rgba(245, 158, 11, 0.1); color: var(--status-warning); border: 1px solid rgba(245, 158, 11, 0.2); }
+.badge-danger { background: rgba(239, 68, 68, 0.1); color: var(--status-danger); border: 1px solid rgba(239, 68, 68, 0.2); }
+.badge-neutral { background: rgba(136, 136, 136, 0.1); color: var(--text-secondary); border: 1px solid rgba(136, 136, 136, 0.2); }

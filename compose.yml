@@ -1,0 +1,81 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    env_file: ${VC_SCOPE_PRIVATE_CONFIG:?Set VC_SCOPE_PRIVATE_CONFIG to your private backend.env path}
+    environment:
+      AUTH_PROVIDER: supabase
+      ENVIRONMENT: production
+      DATABASE_URL: sqlite:////data/runtime.db
+      JOB_WORKER_MODE: celery
+      JOB_DATABASE: supabase
+      CELERY_BROKER_URL: redis://redis:6379/0
+    volumes:
+      - runtime-data:/data
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD","python","-c","import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+  web:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL:?Set the public project URL}
+        NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${SUPABASE_PUBLISHABLE_KEY:?Set the publishable key}
+        NEXT_PUBLIC_POSTHOG_KEY: ${POSTHOG_PROJECT_KEY:-}
+        NEXT_PUBLIC_POSTHOG_HOST: ${POSTHOG_HOST:-https://us.i.posthog.com}
+        NEXT_PUBLIC_SENTRY_DSN: ${SENTRY_BROWSER_DSN:-}
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+  redis:
+    image: redis:7.4-alpine
+    command: ["redis-server","--appendonly","yes"]
+    volumes:
+      - job-broker:/data
+    healthcheck:
+      test: ["CMD","redis-cli","ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    env_file: ${VC_SCOPE_PRIVATE_CONFIG}
+    environment:
+      JOB_DATABASE: supabase
+      CELERY_BROKER_URL: redis://redis:6379/0
+    command: ["celery","-A","backend.celery_app:app","worker","--loglevel=WARNING","--concurrency=2"]
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    env_file: ${VC_SCOPE_PRIVATE_CONFIG}
+    environment:
+      JOB_DATABASE: supabase
+      CELERY_BROKER_URL: redis://redis:6379/0
+    command: ["celery","-A","backend.celery_app:app","beat","--loglevel=WARNING","--schedule=/tmp/celerybeat-schedule"]
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+volumes:
+  runtime-data:
+  job-broker:

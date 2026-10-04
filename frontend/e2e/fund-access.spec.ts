@@ -1,0 +1,23 @@
+import {test,expect,Page} from '@playwright/test';
+import {randomUUID} from 'node:crypto';
+import {submitSignup} from './signup-helper';
+
+async function signup(page:Page,name:string,email:string) {
+ await page.goto('/signup');await page.getByLabel('Full name',{exact:true}).fill(name);await page.getByLabel('Email address',{exact:true}).fill(email);await page.getByLabel('Password',{exact:true}).fill(randomUUID()+'Aa1!');await submitSignup(page);await expect(page.getByRole('button',{name:'Open demonstration scenario',exact:true})).toBeVisible();
+}
+test('fund-owned records require explicit deal access and survive member revocation',async({page,browser})=>{
+ test.setTimeout(120000);page.setDefaultTimeout(15000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));const colleagueEmail=`fund-member-${randomUUID()}@example.invalid`;
+ const colleagueContext=await browser.newContext({baseURL:process.env.E2E_BASE_URL||'http://127.0.0.1:3000'});const colleague=await colleagueContext.newPage();colleague.setDefaultTimeout(15000);colleague.on('pageerror',e=>errors.push(e.message));
+ try {
+  await signup(colleague,'Fund Colleague',colleagueEmail);await signup(page,'Fund Administrator',`fund-admin-${randomUUID()}@example.invalid`);await page.getByRole('button',{name:'Open demonstration scenario',exact:true}).click();await expect(page.getByRole('heading',{name:'Your research desk'})).toBeVisible();
+  await page.goto('/library?section=Fund%20access');await page.getByLabel('New fund name',{exact:true}).fill('QA fund workspace');await page.getByRole('button',{name:'Create fund workspace',exact:true}).click();await expect(page.getByRole('heading',{name:'QA fund workspace · Admin',exact:true})).toBeVisible();
+  await page.getByLabel('Teammate account email',{exact:true}).fill(colleagueEmail);await page.getByLabel('Fund role',{exact:true}).selectOption('Viewer');await page.getByRole('button',{name:'Save membership',exact:true}).click();await expect(page.locator('.fund-member').filter({hasText:colleagueEmail})).toContainText('Viewer');
+  await page.getByLabel('Personal record to publish',{exact:true}).selectOption({label:'AtlasOps · revision 1'});await expect(page.getByRole('button',{name:'Publish fund copy',exact:true})).toBeDisabled();await page.getByLabel('I reviewed the entire record and history for fund disclosure',{exact:true}).check();await page.getByRole('button',{name:'Publish fund copy',exact:true}).click();const recordLink=page.getByRole('link',{name:'Open fund record',exact:true});await expect(recordLink).toHaveCount(1);const href=await recordLink.getAttribute('href');expect(href).toMatch(/fund-/);
+  await colleague.goto(href!);await expect(colleague.getByRole('heading',{name:'Company not found',exact:true})).toBeVisible();
+  await page.getByLabel('Fund record',{exact:true}).selectOption({label:'AtlasOps'});await page.getByLabel('Active teammate',{exact:true}).selectOption({label:`Fund Colleague · ${colleagueEmail}`});await page.getByLabel('Deal access',{exact:true}).selectOption('Reviewer');await page.getByRole('button',{name:'Save deal access',exact:true}).click();
+  await colleague.reload();await expect(colleague.getByText('Fund-owned research',{exact:false})).toContainText('read-only');await expect(colleague.getByRole('button',{name:'Choose disposition',exact:true})).toBeDisabled();await colleague.goto(href!.replace('Overview','Diligence'));await expect(colleague.getByRole('button',{name:'Record a risk',exact:true})).toBeDisabled();await expect(colleague.getByRole('button',{name:'Record your view',exact:true})).toBeDisabled();
+  await page.getByLabel('Teammate account email',{exact:true}).fill(colleagueEmail);await page.getByLabel('Fund role',{exact:true}).selectOption('Reviewer');await page.getByRole('button',{name:'Save membership',exact:true}).click();await colleague.reload();await expect(colleague.getByRole('button',{name:'Record a risk',exact:true})).toBeEnabled();
+  await page.locator('.fund-member').filter({hasText:colleagueEmail}).getByRole('button',{name:'Deactivate member',exact:true}).click();await expect(page.locator('.fund-member').filter({hasText:colleagueEmail})).toContainText('Inactive');await colleague.reload();await expect(colleague.getByRole('heading',{name:'Company not found',exact:true})).toBeVisible();await expect(page.getByRole('link',{name:'Open fund record',exact:true})).toHaveCount(1);
+  await page.setViewportSize({width:390,height:844});expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);expect(errors).toEqual([]);
+ } finally {await colleagueContext.close();}
+});

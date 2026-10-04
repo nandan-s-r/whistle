@@ -1,0 +1,29 @@
+[
+  {
+    "id": "research-d-matrix", "name": "d-Matrix", "domain": "d-matrix.ai",
+    "summary": "Memory-centric silicon and systems for AI inference. A named Parasail collaboration is a useful lead for checking deployment economics.",
+    "origin": "Research snapshot · 4 Oct 2026", "captured_at": "2026-10-04T13:30:00+00:00", "published_at": "2026-07-30T00:00:00+00:00",
+    "focus": "AI chips and semiconductor infrastructure", "fit": "Sector fit; mandate and entry price unassessed",
+    "reasons": ["AI inference hardware addresses latency and memory bottlenecks", "A named deployment partner gives a specific diligence starting point"],
+    "gaps": ["Independent customer confirmation and repeat orders", "Shipment volume, gross margin and valuation", "India relevance and access to a current round"],
+    "sources": [{"title": "d-Matrix July newsletter", "url": "https://www.d-matrix.ai/newsletter/july-newsletter/", "excerpt": "The company's July 2026 update describes a Parasail collaboration using Corsair alongside NVIDIA hardware.", "published_on": "2026-07-30", "relationship": "Company statement; customer enthusiasm not established"}]
+  },
+  {
+    "id": "research-axelera", "name": "Axelera AI", "domain": "axelera.ai",
+    "summary": "Edge AI inference accelerators and software. The company reports shipments to more than 500 customers, which needs checking for deployment depth.",
+    "origin": "Research snapshot · 4 Oct 2026", "captured_at": "2026-10-04T13:30:00+00:00", "published_at": "2026-02-24T00:00:00+00:00",
+    "focus": "AI chips and semiconductor infrastructure", "fit": "Sector fit; mandate and entry price unassessed",
+    "reasons": ["Edge inference silicon matches the selected sector", "Reported customer shipments offer an adoption hypothesis to test"],
+    "gaps": ["Paid production deployments versus evaluation kits", "Repeat orders, customer concentration and software support", "Geography, round availability and investment terms"],
+    "sources": [{"title": "Axelera commercial growth announcement", "url": "https://axelera.ai/news/axelera-ai-secures-more-than-250-million-funding-on-global-commercial-growth", "excerpt": "On 24 February 2026 Axelera reported shipping to its 500th global customer across edge and physical AI applications.", "published_on": "2026-02-24", "relationship": "Company statement; independent customer confirmation missing"}]
+  },
+  {
+    "id": "research-neureality", "name": "NeuReality", "domain": "neureality.ai",
+    "summary": "AI inference infrastructure with NR1 hardware and deployment tooling. Public technical documentation supports a concrete software-integration review.",
+    "origin": "Research snapshot · 4 Oct 2026", "captured_at": "2026-10-04T13:30:00+00:00", "published_at": null,
+    "focus": "AI chips and semiconductor infrastructure", "fit": "Sector fit; mandate and entry price unassessed",
+    "reasons": ["Inference hardware and orchestration fit semiconductor infrastructure", "Deployment documentation can inform integration diligence"],
+    "gaps": ["Named paying customers and repeat deployments", "Independent workload performance and total cost", "Publication date, India relevance and current fundraising access"],
+    "sources": [{"title": "NeuReality deployment API guide", "url": "https://developer.neureality.ai/docs/user-guide/deployment-api.html", "excerpt": "NeuReality publishes a workflow for defining, compiling and deploying AI pipelines using its NR1 platform.", "published_on": null, "relationship": "Company technical documentation; no customer adoption claim"}]
+  }
+]

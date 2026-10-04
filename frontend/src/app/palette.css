@@ -1,0 +1,139 @@
+/* User-approved Whistle palette, 4 October 2026. This supersedes the PDF's colours. */
+:root,
+.workspace-shell,
+.auth-stage {
+  --theme-canvas: #F7F5F0;
+  --theme-surface: #FFFFFF;
+  --theme-raised: #EEEAE3;
+  --theme-border: #D9D3C9;
+  --theme-text: #242321;
+  --theme-option-surface: var(--theme-surface);
+  --theme-option-text: var(--theme-text);
+  --theme-body: #242321;
+  --theme-muted: #68645E;
+  --theme-brand: #A94425;
+  --theme-link: #A94425;
+  --theme-focus: #A94425;
+  --theme-accent-soft: #F5E7DF;
+  --theme-on-brand: #FFFFFF;
+  --theme-ink: #242321;
+  --theme-nav-bg: #242321;
+  --theme-nav-raised: #35322D;
+  --theme-nav-text: #F7F5F0;
+  --theme-nav-muted: #CEC7BC;
+  --theme-nav-border: #514A40;
+  --theme-verified: #3E6847;
+  --theme-verified-soft: #EAF0E7;
+  --theme-warning: #8A5A00;
+  --theme-warning-soft: #F7EDDA;
+  --theme-risk: #B4233C;
+  --theme-risk-soft: #FBECEF;
+  --theme-ai: #705A40;
+  --theme-ai-soft: #EFE8DF;
+  --bg-main: var(--theme-canvas);
+  --bg-surface: var(--theme-surface);
+  --bg-panel: var(--theme-surface);
+  --bg-elevated: var(--theme-raised);
+  --text-primary: var(--theme-text);
+  --text-secondary: var(--theme-muted);
+  --text-muted: var(--theme-muted);
+  --border-subtle: var(--theme-border);
+  --border-highlight: var(--theme-muted);
+  --accent-blue: var(--theme-link);
+  --accent-cyan: var(--theme-ai);
+  --accent-violet: var(--theme-ai);
+  --accent-emerald: var(--theme-verified);
+  --accent-green: var(--theme-verified);
+  --accent-amber: var(--theme-warning);
+  --accent-red: var(--theme-risk);
+  --desk-border: var(--theme-border);
+  --desk-muted: var(--theme-muted);
+}
+html[data-theme="dark"],
+html[data-theme="dark"] .workspace-shell,
+html[data-theme="dark"] .auth-stage {
+  --theme-canvas: #1D1C1A;
+  --theme-surface: #272521;
+  --theme-raised: #34312C;
+  --theme-border: #575148;
+  --theme-text: #F7F5F0;
+  --theme-body: #DED9D0;
+  --theme-muted: #B8B0A3;
+  --theme-link: #F0B08E;
+  --theme-focus: #F0B08E;
+  --theme-accent-soft: #432B23;
+  --theme-verified: #ADD0AA;
+  --theme-verified-soft: #27372A;
+  --theme-warning: #EBC47A;
+  --theme-warning-soft: #3F3320;
+  --theme-risk: #F2ADB9;
+  --theme-risk-soft: #40252D;
+  --theme-ai: #D9C1A3;
+  --theme-ai-soft: #3B3126;
+}
+html { color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
+/* Native Windows menus can use a white popup even when the field is dark.
+   Give each item a complete colour pair, independent of its parent chrome. */
+select option,
+select optgroup {
+  background-color: var(--theme-option-surface);
+  color: var(--theme-option-text);
+  font: inherit;
+}
+body { background: var(--theme-canvas); color: var(--theme-text); }
+::selection { background: var(--theme-accent-soft); color: var(--theme-text); }
+.workspace-shell .ws-button.primary,
+.auth-stage .ws-button.primary,
+.btn-primary { background: var(--theme-brand); color: var(--theme-on-brand); border-color: var(--theme-brand); }
+.workspace-shell .ws-button.primary:hover,
+.auth-stage .ws-button.primary:hover,
+.btn-primary:hover { background: #913A20; border-color: #913A20; }
+.workspace-shell .research-sidebar,
+.auth-stage .auth-story { background: var(--theme-nav-bg); }
+.workspace-shell .research-nav.active { background: var(--theme-brand); color: var(--theme-on-brand); }
+.workspace-shell .pipeline-status-tabs button.selected { color: var(--theme-link); border-bottom-color: var(--theme-link); }
+.workspace-shell .segmented button.selected { background: var(--theme-accent-soft); color: var(--theme-link); }
+.workspace-shell .theme-toggle:hover { background: var(--theme-raised); }
+
+/* Dark chrome has its own readable text roles in either appearance. */
+.research-sidebar, .auth-story, .context-drawer.assistant-drawer, .spotlight-intro {
+  --theme-text: var(--theme-nav-text);
+  --theme-body: var(--theme-nav-text);
+  --theme-muted: var(--theme-nav-muted);
+  --theme-link: #F0B08E;
+  --theme-focus: #F0B08E;
+  --theme-raised: var(--theme-nav-raised);
+  --theme-border: var(--theme-nav-border);
+}
+.auth-stage .auth-form-stage { background: var(--theme-canvas); }
+.auth-stage .auth-workflow h3 { color: var(--theme-nav-text); }
+.auth-stage .auth-workflow li { border-color: var(--theme-nav-border); }
+.auth-stage .auth-form label { color: var(--theme-text); }
+.workspace-shell .research-nav:hover { background: var(--theme-nav-raised); }
+.workspace-shell .research-nav.active:hover { background: #913A20; }
+
+.auth-theme-toggle { color: var(--text-primary); }
+
+.workspace-shell .research-nav.active svg, .workspace-shell .nav-counter { color: var(--theme-on-brand); }
+
+/* Placeholder hints remain readable on white fields and warm dark surfaces. */
+input::placeholder, textarea::placeholder { color: var(--theme-muted); opacity: 1; }
+
+/* Neutral prose, quieter metadata and accent-coloured actions have distinct roles. */
+.workspace-shell .reference-document > .reference-section p,
+.workspace-shell .reference-heading .document-lede,
+.workspace-shell .welcome-heading > p,
+.workspace-shell .welcome-record p { color: var(--theme-body); }
+.workspace-shell .welcome-heading .welcome-demo-note { color: var(--theme-muted); }
+.workspace-shell .company-summary { font-size: 13px; line-height: 1.65; }
+.workspace-shell .sourcing-table th,
+.workspace-shell .research-table th,
+.workspace-shell .page-footnote,
+.workspace-shell .company-decision-bar,
+.workspace-shell .sourcing-evidence > small { font-size: 12px !important; }
+.workspace-shell .page-footnote > span { font-size: inherit; }
+.workspace-shell .workspace-form label,
+.workspace-shell .workspace-form input,
+.workspace-shell .workspace-form select,
+.workspace-shell .workspace-form textarea { color: var(--theme-text); }
