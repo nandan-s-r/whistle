@@ -34,3 +34,11 @@ The first complete Linux browser run passed 15 of 16 workflows. The remaining te
 The corrected code at commit `3360dc8` passed [GitHub verification run 37242843723](https://github.com/nandan-s-r/whistle/actions/runs/37242843723): both application and database jobs succeeded, including the complete browser suite and production API/worker container build. Later documentation edits do not change that tested application code.
 
 The public Supabase Auth settings also confirm that email accounts and signup are enabled, with automatic email confirmation disabled. Users therefore need confirmation. This settings check does not verify email delivery or the redirect configuration.
+
+## Credential publication checks
+
+The new Whistle repository is private. The release guard found no flagged credentials or private-setting filenames across its five published commits: 346 unique eligible source/document blobs were inspected, with no oversized eligible blobs skipped. Private local settings, databases and key files were not opened. This is a bounded pattern check, not a guarantee that every kind of credential can be detected.
+
+The guard now detects additional provider-token formats and legacy Supabase service-role JWTs, checks private filenames case-insensitively, and inspects every reachable commit tree so reused blobs do not conceal private filenames. GitHub verification fetches full history before running it. A local pre-push hook is enabled in the release checkout; developers cloning the repository must enable it themselves. Four isolated tests cover token detection, private filenames, deleted historical keys, reused private blobs and rejection of shallow history.
+
+The formal Codex Security plugin scan-start call did not return an authoritative scan context during this follow-up. That audit is unverified. The successful release tests and credential checks must not be described as an exhaustive security audit or a guarantee against compromise. Hosted account isolation, provider delivery and the previously documented dependency/password-protection concerns remain acceptance work.

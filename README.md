@@ -83,6 +83,8 @@ python -m unittest discover -s tests -v
 python scripts/check-release-secrets.py
 ```
 
+Before pushing, run `python scripts/check-release-secrets.py --history` from a full clone. Enable the local push guard with `git config core.hooksPath .githooks`. It reports filenames rather than credential values. GitHub verification also scans the full committed history. These pattern checks reduce accidental exposure; they cannot identify every possible secret.
+
 Inside `frontend`:
 
 ```sh

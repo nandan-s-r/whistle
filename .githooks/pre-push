@@ -1,0 +1,3 @@
+#!/bin/sh
+# Check current files and committed history without displaying credential values.
+exec python scripts/check-release-secrets.py --history
