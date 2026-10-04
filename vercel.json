@@ -1,6 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "fastapi",
+  "env": {
+    "ENVIRONMENT": "production",
+    "AUTH_PROVIDER": "supabase"
+  },
   "functions": {
     "backend/main.py": {
       "excludeFiles": "{frontend/**,docs/**,tests/**,scripts/**,supabase/**,venv/**,tmp/**,scratch/**,chromadb_storage/**,uploads/**,reports/**,*.db,.env*,backend/assets/*.ndjson}"
