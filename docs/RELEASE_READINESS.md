@@ -1,6 +1,6 @@
-# Whistle release preparation — 5 October 2026
+# Whistle local release preparation - 5 October 2026
 
-This is a verified local candidate, not a published release or security certification. No GitHub push, Vercel deployment, account migration, provider purchase or outbound message was performed.
+This document records the earlier local preparation checks. Whistle has since been published to a new GitHub repository and deployed to Vercel. See [current deployment status](DEPLOYMENT.md) for the live URLs, checks and remaining hosted acceptance work. The historical results below are not a security certification.
 
 ## Account choice and retained work
 

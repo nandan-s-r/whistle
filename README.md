@@ -2,6 +2,8 @@
 
 Whistle is a research workspace for investors. It keeps company research, source material, diligence, financial models and investment decisions together.
 
+Open [Whistle](https://whistle-henna.vercel.app). The website and API are deployed. Email confirmation, password recovery and authenticated cloud workflows still need hosted acceptance checks. [Deployment notes](docs/DEPLOYMENT.md) describe the current settings and remaining work.
+
 The basic workflow is simple: find a company, check the evidence, decide what to do next. Each claim keeps its sources and review status. AI can help prepare research, but an investor reviews the result before it becomes an approved fact.
 
 ## Using Whistle
@@ -70,7 +72,7 @@ The website and API need separate hosted services. Set the website's root direct
 | API | `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `FRONTEND_URL`, `ENVIRONMENT`, `AUTH_PROVIDER` |
 | Optional Gemini research | `GEMINI_API_KEY`, `GEMINI_MODEL`, `WORKSPACE_PROVIDER=gemini`, on the API only |
 
-Keep local authentication disabled in hosted builds. Set Supabase's sign-in, confirmation and password-reset URLs to the actual website address. Test account creation, confirmation, returning sign-in and separate-user access before inviting users. See [deployment setup](docs/RELEASE_READINESS.md).
+Keep local authentication disabled in hosted builds. Set Supabase's sign-in, confirmation and password-reset URLs to the actual website address. Test account creation, confirmation, returning sign-in and separate-user access before inviting users. See [deployment setup](docs/DEPLOYMENT.md).
 
 Never commit `.env` files, databases or private keys. Never put provider credentials or a Supabase service-role key in a `NEXT_PUBLIC_` setting. Background jobs need a separate worker; a website deployment does not start one.
 

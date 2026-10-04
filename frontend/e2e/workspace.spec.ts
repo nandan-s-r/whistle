@@ -145,9 +145,14 @@ test("connections show truthful setup states and a durable research task", async
   await expect(
     page.getByRole("heading", { name: "Connections & imports" }),
   ).toBeVisible();
+  await page.getByText(/^All connections & setup/).click();
+  const apollo = page.locator(".connection-row").filter({
+    has: page.getByRole("heading", { name: "Apollo people data", exact: true }),
+  });
   await expect(
-    page.getByText("Plan access blocked", { exact: true }),
+    apollo.getByText("Not connected to app", { exact: true }),
   ).toBeVisible();
+  await expect(apollo).toContainText("This is not an app runtime connection.");
   await page.getByLabel("Company", { exact: true }).selectOption("atlasops");
   await page.getByRole("button", { name: "Queue task", exact: true }).click();
   await expect(
