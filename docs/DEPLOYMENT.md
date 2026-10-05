@@ -1,6 +1,6 @@
 # Deployment status
 
-Whistle is deployed in Nandan S R's Vercel workspace. The source is in a new private GitHub repository.
+Whistle is deployed in Nandan S R's Vercel workspace. The source repository is public at the owner's request.
 
 - [Website](https://whistle-henna.vercel.app)
 - [Repository](https://github.com/nandan-s-r/whistle)
@@ -36,9 +36,23 @@ Hosted Gemini, Firecrawl, X, calendar synchronization and a persistent worker ar
 
 ## Checks that passed
 
-The application and database jobs passed at [commit d6b693c](https://github.com/nandan-s-r/whistle/actions/runs/37244405989). The earlier release at [3360dc8](https://github.com/nandan-s-r/whistle/actions/runs/37242843723) passed 186 backend tests, 23 frontend tests, all 16 browser workflows, database policy checks and the production API/worker image build. The credential guard then added four passing regression tests.
+The application and database jobs passed at [commit cfda85c](https://github.com/nandan-s-r/whistle/actions/runs/37245483438). The earlier release at [3360dc8](https://github.com/nandan-s-r/whistle/actions/runs/37242843723) passed 186 backend tests, 23 frontend tests, all 16 browser workflows, database policy checks and the production API/worker image build. The credential guard then added four passing regression tests.
 
 Before release, the Linux database bootstrap received the standard extension-schema usage grant, the frontend lockfile was regenerated for clean installs, and an outdated Apollo status expectation was corrected. The final runs passed. Building the image does not prove the full worker stack is running.
+
+## Rate limits
+
+The hosted database's allowance functions and job admission trigger were checked on 5 October 2026. Provider calls and job submissions each have separate counters:
+
+| Limit | Per account | Across all accounts |
+| --- | --- | --- |
+| Fixed one-minute window | 10 | 60 |
+| Fixed daily window | 100 | 1,000 |
+| Queued or running jobs | 5 | 100 |
+
+The concurrent-job limit applies to jobs only. Exceeded allowances return HTTP 429. Counters are stored in the database and updated atomically; clients cannot read or edit the allowance table. Thirteen targeted credential and allowance tests passed before the visibility change, including concurrent admission and shared limits across new accounts.
+
+Local preview login has a separate five-attempt limit per minute. Hosted login uses Supabase Auth rather than that local limiter. These checks do not establish a custom Vercel firewall limit for every HTTP request or a completed live account flow.
 
 ## Security work still open
 
@@ -50,7 +64,7 @@ A formal Codex Security audit was not completed because the scan-start call did 
 
 ## Keep keys out of Git
 
-The pre-push credential check inspected 353 historical source/document versions before publishing `d6b693c`, with no flagged keys or private-setting filenames. An earlier check covered 346 versions across the first five commits. No oversized eligible files were skipped, and private settings, databases and key files were not opened.
+Before the repository became public, the credential check inspected 383 historical source/document versions and 333 current source/document files, with no flagged keys or private-setting filenames. No oversized eligible files were skipped, and private settings, databases and key files were not opened.
 
 The guard checks token formats, service-role JWTs, private filenames and every reachable commit tree. GitHub verification fetches full history. The local push hook is enabled in the release checkout; other developers must enable it after cloning.
 
