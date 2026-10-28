@@ -1,5 +1,23 @@
 # Deployment status
 
+## Discovery workflow release - 28 October 2026
+
+With explicit approval, website deployment `dpl_88gbPd9TzC1bJKjYRgUXDXMoMJVt` and API deployment `dpl_2aZauod99VgLrk7PuiD5b4aqDNQg` are Ready on the existing production domains. Saved-record search now has a direct public-research handoff, preserves topic/geography, and resets the company view correctly. Missing-provider guidance and the password-reset layout are corrected. A production-only private signing key now keeps sourcing receipts stable across server instances; no credential value is in source control.
+
+Verification passes the production build, TypeScript/lint, 190 backend tests, 23 frontend checks and all 18 isolated browser workflows. The user's live cloud session completes a semiconductor public-source search with five repository references and zero launch matches. These are not verified Indian startup profiles. The user chose public sources only; AI providers remain unconfigured. Existing records and user passwords were not changed. The provider-side email recovery redirect remains dependent on authorized Supabase project-owner access. See DEAL_SOURCING.md for details and limits.
+
+## Production session repair - 28 October 2026
+
+The hosted API was accepting requests but rejecting cloud sessions with `Could not validate credentials`. Its runtime logs showed local JWT initialization. Production project settings contained the Supabase URL and publishable key but omitted `AUTH_PROVIDER` and `ENVIRONMENT`; the values in `vercel.json` were not effective in that deployed runtime.
+
+With explicit user approval, production project settings now include `AUTH_PROVIDER=supabase` and `ENVIRONMENT=production`. The existing API source was redeployed as `dpl_GtXjELhAquXkiEeHD6Wxf9X3XDNC`, Ready, on the existing `whistle-api.vercel.app` alias. No database records or passwords were changed by this repair. The deployed authentication, entrypoint and deployment configuration files matched the checked-out source byte for byte.
+
+The user's existing signed-in Chrome session now loads four labelled demo companies in Discover and two in Pipeline. Pipeline still loads after a full page refresh. Three token compatibility tests, three runtime configuration tests, and isolated cloud-routing/invalid-session/production-guard checks pass. The new deployment's error/fatal log query returned no entries during the checked five-minute window. This is bounded verification of session validation and workspace reads, not every application feature.
+
+Password-recovery email redirect configuration remains unresolved: it falls back to localhost, and the user does not have dashboard access to the connected Supabase organization. One approved recovery attempt was returned to the live reset page in the same browser. This API repair does not change that setting or establish project ownership.
+
+The subsequent report of blank pages prompted broader live browser verification against the same Ready deployment. Today, Discover, Pipeline, Portfolio and Library all render without the credential error in the user's existing session. Portfolio and Library were also checked after full reloads. CoreLedger's Overview, Evidence, Diligence, Model, Memo and Monitor sections render their corresponding content. The API logs confirm HTTP 200 for authentication and the account-scoped company/search reads. This checks navigation and read rendering only; it does not certify every edit, export or optional external integration. No additional production change was made during this follow-up.
+
 Whistle is deployed in Nandan S R's Vercel workspace. The source repository is public at the owner's request.
 
 - [Website](https://whistle-henna.vercel.app)

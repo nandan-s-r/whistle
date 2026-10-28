@@ -1,5 +1,17 @@
 # Source-backed deal sourcing - 4 October 2026
 
+## Discovery workflow repair - 28 October 2026
+
+The reported semiconductor/India search was filtering the account's saved records while the Research view excluded its fictional examples. The interface now labels that action Search saved companies, states its scope before submission, and offers a direct public-research action from an empty result. That action carries the topic and geography into an editable prompt without automatically sending it. Reset filters also returns to All companies instead of leaving an empty Research view active.
+
+Find new companies opens the existing public-source workflow. Missing Gemini configuration no longer sends an already signed-in cloud user back to sign-in or promises unavailable founder profiles. The screen distinguishes recent launches, public code projects and dated company research notes. Company location and startup identity are not verified by those free sources. The user explicitly chose to keep public sources without adding a paid-provider key.
+
+An isolated live search returned five GitHub project references and zero Product Hunt matches among 50 latest feed entries. A selected company research note was saved and restored through the isolated API. This does not establish five Indian startups or current funding opportunities. The production API also needs a stable private JWT_SECRET because sourcing receipts otherwise use an instance-specific random key; a receipt was verified successfully across separate processes with the same synthetic key.
+
+Local verification passes the 41-route production build, TypeScript, scoped lint, 23 frontend tests, 190 backend tests and all 18 browser workflows. New browser regressions cover prompt/geography handoff, no automatic provider request, truthful missing-provider guidance and recovery from the empty Research view. Existing browser workflows exercise intake, source notes, diligence, decisions, model/memo versions, exports, task persistence and phone layouts. The duplicate password-reset layout wrapper is also removed.
+
+After explicit approval, the website was released as `dpl_88gbPd9TzC1bJKjYRgUXDXMoMJVt` and the API as `dpl_2aZauod99VgLrk7PuiD5b4aqDNQg`, both Ready on their existing production aliases. The API now has a private stable signing key. The user's live cloud session completes the public-source search: five project references and zero matching recent launches, with independent source statuses and no credential error. Existing research records and the user's password were not changed. AI briefs remain disabled by choice; the provider-side recovery email redirect still needs authorized project-owner access.
+
 ## Industry research and integration follow-up
 
 ### Unified industry prompt - 5 October 2026

@@ -125,7 +125,7 @@ export default function Discover() {
       setExcluded(result.excluded);
       setApplied(next);
       setMessage(
-        `${result.results.length} matches. Search applied to your workspace records.`,
+        `Searched ${data.companies.length} saved companies. Results below also respect the selected company view.`,
       );
     } catch (e) {
       if (!controller.signal.aborted) setError(e instanceof Error ? e.message : "Search failed");
@@ -142,6 +142,7 @@ export default function Discover() {
     setExcluded([]);
     setMessage("");
     setError("");
+    setView("All companies");
   };
   const save = async () => {
     if (!token) return;
@@ -205,9 +206,11 @@ export default function Discover() {
       />
       <div className="discover-mode" role="group" aria-label="Discover mode">
         <button className={!sourcing ? "selected" : ""} aria-pressed={!sourcing} onClick={() => setSourcing(false)}>Saved companies</button>
-        <button className={sourcing ? "selected" : ""} aria-pressed={sourcing} onClick={() => setSourcing(true)}>Deal sourcing<Icon name="discover" size={14}/></button>
+        <button className={sourcing ? "selected" : ""} aria-pressed={sourcing} onClick={() => setSourcing(true)}>Find new companies<Icon name="discover" size={14}/></button>
       </div>
-      {sourcing ? <DealSourcing/> : <>
+      {sourcing ? <DealSourcing initialQuery={filters.query.trim()
+        ? `Research ${filters.query.trim()} startups${filters.geography !== "All" ? ` in ${filters.geography}` : ""}. Identify company websites, founder backgrounds, products and customer evidence. Cite sources and state unknowns.`
+        : ""}/> : <>
       <SourcingStudio onCapture={() => setIntake(true)} onThesis={query => { const next = { ...allFilters, query }; setFilters(next); void run(next); }}/>
       <div className="sourcing-views" role="group" aria-label="Company views">
         {["All companies", "Research", "Watchlist"].map((v) => (
@@ -237,6 +240,7 @@ export default function Discover() {
         className="sourcing-controls"
         aria-label="Search and thesis filters"
       >
+        <p className="sourcing-method">Search only the {data.companies.length} companies saved in your workspace. <button className="text-link" onClick={() => setSourcing(true)}>Find new companies online</button> to research a new industry.</p>
         <form
           className="sourcing-search"
           onSubmit={(e) => {
@@ -252,10 +256,10 @@ export default function Discover() {
             id="thesis-query"
             value={filters.query}
             onChange={(e) => setFilters({ ...filters, query: e.target.value })}
-            placeholder="Search a thesis, founder background or company…"
+            placeholder="Search your saved companies, sectors or founder notes…"
           />
           <button className="ws-button primary" disabled={running}>
-            {running ? "Searching…" : "Run search"}
+            {running ? "Searching saved companies…" : "Search saved companies"}
             <Icon size={15} />
           </button>
         </form>
@@ -317,7 +321,7 @@ export default function Discover() {
         {dirty && (
           <p className="search-pending" role="status">
             <Icon name="clock" size={13} />
-            Filters changed. Run search to update the results.
+            Filters changed. Search saved companies to update the results.
           </p>
         )}
       </section>
@@ -577,14 +581,17 @@ export default function Discover() {
         {!running && !shown.length && (
           <div className="empty-state">
             <Icon name="discover" />
-            <h3>No companies in this view</h3>
+            <h3>No saved companies in this view</h3>
             <p>
               {view === "Research"
-                ? "Capture a real company and its sources to start your research."
+                ? "This view excludes demo companies. Search public sources to find real companies, or show all saved companies."
                 : view === "Watchlist"
                   ? "Save a company with the bookmark button, or change your search."
-                  : "Broaden your thesis filters or capture a company."}
+                  : "No saved records match these filters. This does not mean there are no companies in this industry."}
             </p>
+            <button className="ws-button primary" onClick={() => setSourcing(true)}>
+              {filters.query.trim() ? `Research ${filters.query.trim()} online` : "Find new companies online"}
+            </button>
             <button className="ws-button secondary" onClick={reset}>
               Reset filters
             </button>
@@ -593,7 +600,7 @@ export default function Discover() {
         <div className="sourcing-data-note">
           <Icon name="source" size={14} />
           <span>
-            Saved records only. Use Deal sourcing to inspect external leads. Demo
+            Saved records only. Use Find new companies to inspect external leads. Demo
             records are fictional.
           </span>
         </div>

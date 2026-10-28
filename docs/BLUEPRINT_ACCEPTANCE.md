@@ -1,5 +1,13 @@
 # Blueprint coverage
 
+## Discovery actions and public-source scope - 28 October 2026
+
+Pages 3, 10, 15 and 26–30 now have a direct handoff from an empty saved-record search to public industry research, preserving the topic and geography without sending a request automatically. Saved search scope, provider availability, company-location uncertainty and dated notes are explicit. Reset filters also restores the company view. The user chose public sources without adding AI-provider credentials. The 41-route build, TypeScript/lint, 190 backend tests, 23 frontend tests and all 18 browser workflows pass locally; a live public-source query and isolated lead-save/restore also pass. The user-approved website/API rollout is Ready, including the private stable receipt-signing key, and the user's cloud account completes public research successfully. Full-market startup discovery and verified founder/company geography remain open; see DEAL_SOURCING.md.
+
+## Hosted returning-session repair - 28 October 2026
+
+The returning-user continuity requirement now has direct hosted evidence: after user-approved correction of the API's production authentication settings and redeployment of its existing source, the user's cloud session loads Discover and Pipeline, including the saved labelled demo records. A full Pipeline refresh retains access. Six existing authentication/configuration tests and isolated cloud-routing, invalid-session and production-guard checks pass. Password-recovery redirect configuration and broader hosted/multi-user acceptance remain open; see DEPLOYMENT.md for the deployed artifact, exact scope and limits. Earlier PDF page references and acceptance gates remain unchanged.
+
 This register maps the original 31-page specification to implemented work and remaining checks. The page numbers and earlier test results are retained. Later changes, including the warm palette and separate Reviews page, take precedence over older notes. Use [deployment status](DEPLOYMENT.md) for the hosted release.
 
 ## Integration depth and activity dates - 5 October 2026

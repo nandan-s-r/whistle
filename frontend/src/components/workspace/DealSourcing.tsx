@@ -72,7 +72,7 @@ function CandidateReview({ candidate: c, xReady, onClose }: { candidate: Candida
   </Drawer>;
 }
 
-export default function DealSourcing() {
+export default function DealSourcing({ initialQuery = "" }: { initialQuery?: string }) {
   const { token } = useAuth(); const { data } = useWorkspace();
   const [focus, setFocus] = useState(focuses[0]); const [keywords, setKeywords] = useState(""); const [days, setDays] = useState(30);
   const [mode, setMode] = useState("Industry research");
@@ -93,7 +93,7 @@ export default function DealSourcing() {
   }
   return <section className="deal-sourcing" aria-label="Deal sourcing">
     <div className="segmented" role="group" aria-label="Sourcing method">{["Industry research", "Launches & research notes"].map(option => <button key={option} aria-pressed={mode === option} className={mode === option ? "selected" : ""} onClick={() => setMode(option)}>{option}</button>)}</div>
-    {mode === "Industry research" ? <IndustryResearch/> : <>
+    {mode === "Industry research" ? <IndustryResearch initialQuery={initialQuery} onBrowseNotes={() => setMode("Launches & research notes")}/> : <>
     <div className="deal-sourcing-heading"><div><h2>Find startups worth researching.</h2><p>Inspect launches and customer evidence. Save the candidates you want to review.</p></div><span className="record-origin">Source-backed leads</span></div>
     <form className="deal-sourcing-form" onSubmit={e => { e.preventDefault(); void run(); }}>
       <label>Research thesis<select value={focus} onChange={e => setFocus(e.target.value)}>{focuses.map(f => <option key={f}>{f}</option>)}</select></label>

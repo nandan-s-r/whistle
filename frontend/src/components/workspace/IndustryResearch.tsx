@@ -25,9 +25,9 @@ function safeLink(value: string) {
   try { const url = new URL(value); return url.protocol === "https:" && !url.username && !url.password ? value : ""; } catch { return ""; }
 }
 
-export default function IndustryResearch() {
+export default function IndustryResearch({ initialQuery = "", onBrowseNotes }: { initialQuery?: string; onBrowseNotes: () => void }) {
   const { token } = useAuth(); const { data } = useWorkspace();
-  const [query, setQuery] = useState(""); const [github, setGithub] = useState(true); const [consent, setConsent] = useState(false);
+  const [query, setQuery] = useState(initialQuery); const [github, setGithub] = useState(true); const [consent, setConsent] = useState(false);
   const [gemini, setGemini] = useState(false); const [producthunt, setProducthunt] = useState(true);
   const [capabilities, setCapabilities] = useState<Capabilities | null>(null); const [connectionError, setConnectionError] = useState("");
   const [connectionAttempt, setConnectionAttempt] = useState(0);
@@ -59,9 +59,10 @@ export default function IndustryResearch() {
     finally { if (controller.current === pending) setBusy(false); }
   }
   return <section className="industry-research" aria-label="Industry research">
-    <header><h2>What space are you exploring?</h2><p>Describe an industry or a customer problem. For a deeper profile, include a startup’s name.</p><p>Get a sourced brief on founders, products, customer usage, competitors and the questions worth asking next.</p></header>
+    <header><h2>What space are you exploring?</h2><p>Describe an industry or a customer problem. For a deeper profile, include a startup’s name.</p><p>{capabilities?.gemini.selectable ? "Research founders, products, customer usage and competitors with cited public sources." : "Search recent launches and public projects, or browse the dated company research notes. These sources have limited coverage; company identity and location need review."}</p></header>
     {connectionError ? <p className="notice error" role="alert">{connectionError} <button className="text-link" onClick={() => setConnectionAttempt(n => n + 1)}>Retry connection check</button></p> : !capabilities ? <p className="muted" role="status">Checking available research sources…</p> :
-      <p className="research-account-status"><span>{capabilities.account}</span> · {capabilities.gemini.detail} {!capabilities.gemini.selectable && <Link href="/login">Cloud sign-in</Link>}</p>}
+      <p className="research-account-status"><span>{capabilities.account}</span> · {capabilities.gemini.detail} {!capabilities.gemini.selectable && <Link href={capabilities.account === "Cloud account" ? "/library?section=Connections%20%26%20imports" : "/login"}>{capabilities.account === "Cloud account" ? "Research connection settings" : "Cloud sign-in"}</Link>}</p>}
+    {capabilities && !capabilities.gemini.selectable && <p className="notice">AI company research is not available for this account. The public sources below can return launches and code projects; they do not provide a complete startup directory or verified founder profiles. <button className="text-link" onClick={onBrowseNotes}>Browse company research notes</button></p>}
     <form onSubmit={e => { e.preventDefault(); void run(); }}>
       <label htmlFor="industry-prompt" className="sr-only">Industry research prompt</label>
       <textarea id="industry-prompt" required minLength={12} maxLength={1200} value={query} onChange={e => setQuery(e.target.value)} placeholder="Find semiconductor startups building AI inference hardware. Who are the founders, what is shipping, and which customers are using it?"/>
@@ -73,7 +74,7 @@ export default function IndustryResearch() {
         <p>{capabilities?.firecrawl.detail}</p><p>{capabilities?.social_detail}</p>
       </details>
       <label className="check-label research-consent"><input required type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)}/>Send my public prompt to the selected research providers. Keep confidential deal details out.</label>
-      <div className="research-prompt-actions"><span>{gemini ? "Founder profiles and customer evidence, with sources." : "Public leads only. Gemini is needed for an AI research brief."}</span><button className="ws-button primary" disabled={busy || !capabilities || !(gemini || producthunt || github || firecrawl) || !["analyst", "partner", "admin"].includes(data?.role ?? "")}>{busy ? "Researching public sources…" : "Research this space"}<Icon name="discover" size={15}/></button></div>
+      <div className="research-prompt-actions"><span>{gemini ? "Founder profiles and customer evidence, with sources." : "Search recent launches and related code projects. Company location is not verified."}</span><button className="ws-button primary" disabled={busy || !capabilities || !(gemini || producthunt || github || firecrawl) || !["analyst", "partner", "admin"].includes(data?.role ?? "")}>{busy ? "Researching public sources…" : "Search public sources"}<Icon name="discover" size={15}/></button></div>
     </form>
     <details className="research-example-prompts"><summary>Try an example</summary>{examples.map(example => <button className="text-link" key={example} onClick={() => setQuery(example)}>{example}</button>)}</details>
     {error && <p className="notice error" role="alert">{error}</p>}

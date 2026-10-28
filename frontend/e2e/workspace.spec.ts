@@ -50,6 +50,34 @@ test.beforeEach(async ({ page, context }) => {
   await expect(page.getByRole("heading", { name: "Your research desk" })).toBeVisible();
 });
 
+test("empty saved search hands the topic and geography to public research without sending it automatically", async ({ page }) => {
+  await page.route("**/api/workspace/sourcing/research/capabilities", route => route.fulfill({json:{account:"Cloud account",gemini:{selectable:false,detail:"Gemini needs a private server key and model."},firecrawl:{selectable:false,detail:"No runtime key configured."},social_detail:"Public sources only."}}));
+  let researchRequests = 0;
+  await page.route("**/api/workspace/sourcing/research", route => { researchRequests++; return route.fulfill({json:{checked_at:new Date().toISOString(),query:"synthetic",answer:"",citations:[],suggestions:[],repositories:[],launches:[],web_references:[],sources:[]}}); });
+  await page.goto("/discover");
+  await page.getByRole("button", {name:"Research 0",exact:true}).click();
+  await page.getByLabel("What are you looking for?", {exact:true}).fill("semiconductor");
+  await page.getByRole("combobox", {name:/Geography/}).selectOption("India");
+  await page.getByRole("button", {name:"Search saved companies",exact:true}).click();
+  await expect(page.getByRole("heading", {name:"No saved companies in this view",exact:true})).toBeVisible();
+  await page.getByRole("button", {name:"Research semiconductor online",exact:true}).click();
+  await expect(page.getByLabel("Industry research prompt", {exact:true})).toHaveValue(/semiconductor startups in India/);
+  await expect(page.getByText("AI company research is not available for this account.", {exact:false})).toBeVisible();
+  await expect(page.getByRole("link", {name:"Cloud sign-in",exact:true})).toHaveCount(0);
+  expect(researchRequests).toBe(0);
+  await page.getByRole("button", {name:"Browse company research notes",exact:true}).click();
+  await expect(page.getByRole("heading", {name:"Find startups worth researching.",exact:true})).toBeVisible();
+});
+
+test("reset filters also restores all companies from the empty Research view", async ({ page }) => {
+  await page.goto("/discover");
+  await page.getByRole("button", {name:"Research 0",exact:true}).click();
+  await expect(page.getByRole("heading", {name:"No saved companies in this view",exact:true})).toBeVisible();
+  await page.getByRole("button", {name:"Reset filters",exact:true}).first().click();
+  await expect(page.getByRole("button", {name:"All companies 4",exact:true})).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("link", {name:"AtlasOps",exact:true})).toBeVisible();
+});
+
 test("sourcing studio connects founder notes, review scheduling, memo revisions and native downloads", async ({ page }) => {
   test.setTimeout(90000);
   const failures: string[] = [];
